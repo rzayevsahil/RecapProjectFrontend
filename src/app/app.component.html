@@ -1,2 +1,44 @@
-<app-navi></app-navi>
-<router-outlet></router-outlet>
+<div class="bg-image"
+style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.jpg');
+      height: 100vh">
+
+<!-- <link rel="stylesheet" href="app.component.css" /> -->
+
+
+  <div class="container">
+    <app-navi></app-navi>
+
+    <div class="row">
+      <div class="col-md-2">
+        <app-brand></app-brand>
+      </div>
+
+      <div class="col-md-8">
+        <app-car></app-car>
+      </div>
+
+      <div class="col-md-2">
+        <app-color></app-color>
+      </div>
+    </div>
+
+    
+
+    <div class="row">
+      <div class="col-md-8">
+        <app-rental></app-rental>
+      </div>
+      <div class="col-md-4">
+        <app-customer></app-customer>
+      </div>
+    </div>
+
+    
+
+    <router-outlet></router-outlet>
+  </div>
+</div>
+  
+
+  
+

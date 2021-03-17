@@ -1,1 +1,22 @@
-<p>customer works!</p>
+<div
+  *ngIf="dataLoaded == false"
+  class="spinner-border text-primary"
+  role="status"
+>
+  <span class="visually-hidden">Loading...</span>
+</div>
+<table *ngIf="dataLoaded == true" class="table-responsive" weight:200px> 
+  <thead>
+    <tr>
+      <th class="p-3 mb-2 bg-dark text-white">&nbsp;&nbsp;Id&nbsp;&nbsp;</th>
+      <th class="p-3 mb-2 bg-secondary text-white">User Id</th>
+      <th class="p-3 mb-2 bg-dark text-white">&nbsp;&nbsp;Company Name&nbsp;&nbsp;</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let customer of customers">
+    <td class="p-3 mb-2 bg-dark text-white">{{ customer.id }}</td>
+    <td class="p-3 mb-2 bg-secondary text-white">&nbsp;&nbsp;{{ customer.userId }}</td>
+    <td class="p-3 mb-2 bg-dark text-white">{{ customer.companyName }}</td>
+  </tr>
+</table> 
+

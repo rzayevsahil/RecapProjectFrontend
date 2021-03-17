@@ -1,1 +1,29 @@
-<p>rental works!</p>
+<div
+  *ngIf="dataLoaded == false"
+  class="spinner-border text-primary"
+  role="status"
+>
+  <span class="visually-hidden">Loading...</span>
+</div>
+<table *ngIf="dataLoaded == true" class="table" > 
+  <thead>
+    <tr>
+      <th class="p-3 mb-2 bg-dark text-white">Id</th>
+      <th class="p-3 mb-2 bg-secondary text-white">Brand</th>
+      <th class="p-3 mb-2 bg-dark text-white">Color</th>
+      <th class="p-3 mb-2 bg-secondary text-white">First Name</th>
+      <th class="p-3 mb-2 bg-dark text-white">Last Name</th>
+      <th class="p-3 mb-2 bg-secondary text-white">Rent Date</th>
+      <th class="p-3 mb-2 bg-dark text-white">Return Date</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let rental of rentals">
+    <td class="p-3 mb-2 bg-dark text-white">{{ rental.id }}</td>
+    <td class="p-3 mb-2 bg-secondary text-white">{{ rental.brandName }}</td>
+    <td class="p-3 mb-2 bg-dark text-white">{{ rental.colorName }}</td>
+    <td class="p-3 mb-2 bg-secondary text-white">{{ rental.customerFirstName }}</td>
+    <td class="p-3 mb-2 bg-dark text-white">{{ rental.customerLastName }}</td>
+    <td class="p-3 mb-2 bg-secondary text-white">{{ rental.rentDate }}</td>
+    <td class="p-3 mb-2 bg-dark text-white">{{ rental.returnDate }}</td>
+  </tr>
+</table> 
