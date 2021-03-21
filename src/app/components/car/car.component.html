@@ -5,10 +5,21 @@
 >
   <span class="visually-hidden">Loading...</span>
 </div>
-<table *ngIf="dataLoaded == true" class="table" > 
+
+<table *ngIf="dataLoaded == true" class="table">
   <thead>
+    <caption
+      (click)="setCurrentAllCar()"
+      [class]="getCurrentAllCarClass()"
+      routerLink="/cars"
+      class="p-3 mb-2 bg-dark bg-gradient text-info bg-dark"
+    >
+      Car List
+    </caption>
     <tr>
-      <th class="p-3 mb-2 bg-dark text-white">Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th class="p-3 mb-2 bg-dark text-white">
+        Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </th>
       <th class="p-3 mb-2 bg-secondary text-white">Brand&nbsp;&nbsp;</th>
       <th class="p-3 mb-2 bg-dark text-white">Color&nbsp;&nbsp;</th>
       <th class="p-3 mb-2 bg-secondary text-white">Model Year</th>
@@ -20,8 +31,21 @@
     <td class="p-3 mb-2 bg-dark text-white">&nbsp;{{ car.carId }}</td>
     <td class="p-3 mb-2 bg-secondary text-white">&nbsp;{{ car.brandName }}</td>
     <td class="p-3 mb-2 bg-dark text-white">&nbsp;&nbsp;{{ car.colorName }}</td>
-    <td class="p-3 mb-2 bg-secondary text-white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ car.modelYear }}</td>
-    <td class="p-3 mb-2 bg-dark text-white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ car.dailyPrice }}</td>
+    <td class="p-3 mb-2 bg-secondary text-white">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ car.modelYear }}
+    </td>
+    <td class="p-3 mb-2 bg-dark text-white">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ car.dailyPrice }}
+    </td>
     <td class="p-3 mb-2 bg-secondary text-white">{{ car.description }}</td>
   </tr>
-</table> 
+</table>
+
+<div *ngFor="let car of cars" class="card" style="width: 18rem">
+  <img src="..." class="card-img-top" alt="..." />
+  <div class="card-body">
+    <h5 class="card-title">{{ car.description }}</h5>
+    <p class="card-text">{{ car.dailyPrice }} ₺</p>
+    <button class="btn btn-primary">Details</button>
+  </div>
+</div>

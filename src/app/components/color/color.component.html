@@ -7,8 +7,22 @@
 </div>
 
 <ul *ngIf="dataLoaded == true" class="list-group">
-  <li class="list-group-item active"  class="p-3 mb-2 bg-success bg-gradient text-white" aria-current="true">Colors</li>
-  <li *ngFor="let color of colors" class="list-group-item">
+  <li
+    (click)="nullCurrentColor()"
+    [class]="getCurrentAllColorClass()"
+    routerLink="/cars"
+    class="p-3 mb-2 bg-success bg-gradient text-white"
+    aria-current="true"
+  >
+    Colors
+  </li>
+  <li
+    (click)="setCurrentColor(color)"
+    routerLink="cars/color/{{ color.colorId }}"
+    *ngFor="let color of colors"
+    [class]="getCurrentColorClass(color)"
+  >
     {{ color.colorName }}
   </li>
 </ul>
+
