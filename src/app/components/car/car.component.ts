@@ -14,7 +14,7 @@ export class CarComponent implements OnInit {
   cars: Car[] = [];
   currentCar: Car;
   carImages: CarImage[] = [];
-  default: Car;
+  default: Car; 
   dataLoaded = false;
   constructor(
     private carService: CarService,

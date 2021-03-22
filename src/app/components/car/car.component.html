@@ -6,8 +6,8 @@
   <span class="visually-hidden">Loading...</span>
 </div>
 
-<table *ngIf="dataLoaded == true" class="table">
-  <thead>
+<table *ngIf="dataLoaded == true" class="table table-dark table-striped">
+  <thead class="table-dark">
     <!-- <caption
       (click)="setCurrentAllCar()"
       [class]="getCurrentAllCarClass()"
@@ -16,26 +16,22 @@
     >
       Car List
     </caption> -->
-    <tr>
-      <th class="p-3 mb-2 bg-dark text-white">
-        Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      </th>
-      <th class="p-3 mb-2 bg-secondary text-white">Brand&nbsp;&nbsp;</th>
-      <th class="p-3 mb-2 bg-dark text-white">Color&nbsp;&nbsp;</th>
-      <th class="p-3 mb-2 bg-secondary text-white">Model Year</th>
-      <th class="p-3 mb-2 bg-dark text-white">Daily Price</th>
-      <th class="p-3 mb-2 bg-secondary text-white">Description</th>
+    <tr> 
+      <th>Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Brand&nbsp;&nbsp;</th>
+      <th>Color&nbsp;&nbsp;</th>
+      <th>Model Year</th>
+      <th>Daily Price</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tr *ngFor="let car of cars">
     <td class="p-3 mb-2 bg-dark text-white">&nbsp;{{ car.carId }}</td>
-    <td class="p-3 mb-2 bg-secondary text-white">{{ car.brandName }}</td>
+    <td class="p-3 mb-2 bg-dark text-white">{{ car.brandName }}</td>
     <td class="p-3 mb-2 bg-dark text-white">{{ car.colorName }}</td>
-    <td class="p-3 mb-2 bg-secondary text-white">{{ car.modelYear }}
-    </td>
-    <td class="p-3 mb-2 bg-dark text-white">{{ car.dailyPrice }} ₺
-    </td>
-    <td class="p-3 mb-2 bg-secondary text-white">{{ car.description }}</td>
+    <td class="p-3 mb-2 bg-dark text-white">{{ car.modelYear }}</td>
+    <td class="p-3 mb-2 bg-dark text-white">{{ car.dailyPrice }} ₺</td>
+    <td class="p-3 mb-2 bg-dark text-white">{{ car.description }}</td>
     <!-- <td>
       <button
         routerLink="/cars/cardetail/{{ car.carId }}"

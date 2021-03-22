@@ -16,12 +16,19 @@
   >
     Colors
   </li>
-  <li
+   <li *ngFor="let color of colors"
     (click)="setCurrentColor(color)"
     routerLink="/cars/color/{{ color.colorId }}"
-    *ngFor="let color of colors"
     [class]="getCurrentColorClass(color)"
   >
     {{ color.colorName }}
-  </li>
+  </li> 
+
+
+  <!-- <select  class="form-select"  aria-label="Default select example">
+    <option selected (click)="nullCurrentColor()"
+    [class]="getCurrentAllColorClass()"
+    routerLink="/cars"  class="p-3 mb-2 bg-success bg-gradient text-white">Colors</option>
+    <option *ngFor="let color of colors" routerLink="/cars/color/{{ color.colorId }}" [class]="getCurrentColorClass(color)" (click)="setCurrentColor(color)" >{{ color.colorName }}</option>
+  </select> -->
 </ul>

@@ -15,7 +15,7 @@ export class CarDetailComponent implements OnInit {
   carDetails:Car;
   cardetails : Car[] = [];
   carImages:CarImage[]=[];
-  carImage:CarImage;
+  currentImage:CarImage;
   dataLoaded=false;
   
   constructor(
@@ -41,6 +41,7 @@ export class CarDetailComponent implements OnInit {
     this.carImageService.getImageByCarId(carId).subscribe(response => {
       this.carImages = response.data;
       this.dataLoaded=true;
+      this.currentImage=this.carImages[0];
     });
   }
 
@@ -53,15 +54,14 @@ export class CarDetailComponent implements OnInit {
     });
   }
 
-  setCurrentImage(image:CarImage){
-    this.carImages[0]=image;
-  }
-
-  getCurrentImageClass(image:CarImage){
-    if(image == this.carImages[0]){
+  getSliderClassName(carImage:CarImage){
+    if(this.currentImage ==carImage){
       return "carousel-item active"
-    } else {
+    }else{
       return "carousel-item"
     }
+
   }
+
+
 }

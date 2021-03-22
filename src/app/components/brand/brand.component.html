@@ -17,7 +17,7 @@
     All Brands
   </li>
   <li
-    (click)="setCurrentBrand(brand)"
+    (click)="setCurrentBrand(brand)" 
     routerLink="/cars/brand/{{brand.brandId}}"
     *ngFor="let brand of brands"
     [class]="getCurrentBrandClass(brand)"
