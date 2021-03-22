@@ -8,14 +8,14 @@
 
 <table *ngIf="dataLoaded == true" class="table">
   <thead>
-    <caption
+    <!-- <caption
       (click)="setCurrentAllCar()"
       [class]="getCurrentAllCarClass()"
       routerLink="/cars"
       class="p-3 mb-2 bg-dark bg-gradient text-info bg-dark"
     >
       Car List
-    </caption>
+    </caption> -->
     <tr>
       <th class="p-3 mb-2 bg-dark text-white">
         Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -29,23 +29,39 @@
   </thead>
   <tr *ngFor="let car of cars">
     <td class="p-3 mb-2 bg-dark text-white">&nbsp;{{ car.carId }}</td>
-    <td class="p-3 mb-2 bg-secondary text-white">&nbsp;{{ car.brandName }}</td>
-    <td class="p-3 mb-2 bg-dark text-white">&nbsp;&nbsp;{{ car.colorName }}</td>
-    <td class="p-3 mb-2 bg-secondary text-white">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ car.modelYear }}
+    <td class="p-3 mb-2 bg-secondary text-white">{{ car.brandName }}</td>
+    <td class="p-3 mb-2 bg-dark text-white">{{ car.colorName }}</td>
+    <td class="p-3 mb-2 bg-secondary text-white">{{ car.modelYear }}
     </td>
-    <td class="p-3 mb-2 bg-dark text-white">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ car.dailyPrice }}
+    <td class="p-3 mb-2 bg-dark text-white">{{ car.dailyPrice }} ₺
     </td>
     <td class="p-3 mb-2 bg-secondary text-white">{{ car.description }}</td>
+    <!-- <td>
+      <button
+        routerLink="/cars/cardetail/{{ car.carId }}"
+        style="text-align: right"
+        class="btn btn-primary"
+      >
+        Details
+      </button>
+    </td> -->
+    <a routerLink="/cars/cardetail/{{car.carId}}" class="btn btn-dark text-center">Details</a>
   </tr>
 </table>
 
-<div *ngFor="let car of cars" class="card" style="width: 18rem">
-  <img src="..." class="card-img-top" alt="..." />
-  <div class="card-body">
-    <h5 class="card-title">{{ car.description }}</h5>
-    <p class="card-text">{{ car.dailyPrice }} ₺</p>
-    <button class="btn btn-primary">Details</button>
+<!-- <div class="card-group"> -->
+<!-- <div class="row row-cols-1 row-cols-md-3">
+  <div class="col">
+                              /cars/cardetail/{{car.carId}}
+<div class="card-group">
+    <div *ngFor="let carimage of carImages" class="card" style="width: 18rem">
+      <img src="https://localhost:44358{{carimage.imagePath}}" class="card-img-top" alt="random" />
+      <div *ngFor="let car of cars" class="card-body" >
+        <h5 class="card-title">{{ car.description }}</h5> 
+        <p class="card-text">{{ car.dailyPrice }} ₺</p>
+        <button style="text-align:right;" class="btn btn-primary">Details</button>
+      </div>
+    </div>
   </div>
 </div>
+</div> -->

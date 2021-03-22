@@ -15,4 +15,4 @@ export class ColorService {
   gerColors():Observable<ListResponseModel<Color>>{
     return this.httpClient.get<ListResponseModel<Color>>(this.apiUrl);
   }
-} 
+}

@@ -1,0 +1,100 @@
+<!-- <h3 style="text-decoration: dashed;" class="car-header">Car Details</h3> -->
+<!-- <caption class="p-3 mb-2 bg-dark bg-gradient text-info bg-dark">
+  Car Details
+</caption> -->
+<!-- <ul *ngIf="dataLoaded == true">
+  <li class="list-group-item" *ngFor="let car of carImages">
+    <img
+      src="https://localhost:44358/{{ car.imagePath }}"
+      alt="https://localhost:44358/{{ car.imagePath }}"
+    />
+    <img
+      *ngIf="car.imagePath == null"
+      src="https://localhost:44358/"
+      alt="https://localhost:44358/"
+    />
+  </li>
+</ul> -->
+<div class="row">
+  <div class="col-md-8">
+
+    <div id="carouselExampleDark" class="carousel carousel-fade slide carousel-dark" data-bs-ride="carousel">
+
+      <ol class="carousel-indicators">
+        <li data-bs-target="#carouselExampleDark"></li>
+      </ol>
+
+      <div class="carousel-inner">
+        <div (click)="setCurrentImage(car)" *ngFor="let car of carImages" [class]="getCurrentImageClass(car)" data-bs-interval="3000">
+          <img src="https://localhost:44358/{{ car.imagePath }}" class="d-block w-100" alt="https://localhost:44358/{{ car.imagePath }}" height="400"/>
+        </div>
+
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleDark"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleDark"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
+    </div>
+  </div>
+
+  <div class="col-md-4"><br>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">
+          <strong> {{ carDetails.brandName }}</strong>
+        </h5>
+        <p class="card-text">{{ carDetails.description }}</p>
+      </div>
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Brand : {{ carDetails.brandName }}</li>
+        <li class="list-group-item">Model Year : {{ carDetails.modelYear }}</li>
+        <li class="list-group-item">Color : {{ carDetails.colorName }}</li>
+        <li class="list-group-item">
+          Günlük Ücret : {{ carDetails.dailyPrice }} ₺
+        </li>
+      </ul>
+
+      <div class="card-body">
+        <button type="button" class="btn btn-primary">Kirala</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- <table *ngIf="dataLoaded == true" class="table">
+  <thead>
+    <th>Id</th>
+    <th>Brand</th>
+    <th>Color</th>
+    <th>Model Year</th>
+    <th>Daily Price</th>
+    <th>Description</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ carDetails.carId }}</td>
+      <td>{{ carDetails.brandName }}</td>
+      <td>{{ carDetails.colorName }}</td>
+      <td>{{ carDetails.modelYear }}</td>
+      <td>{{ carDetails.dailyPrice }} ₺</td>
+      <td>{{ carDetails.description }}</td>
+    </tr>
+  </tbody>
+</table> -->
+</div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/car/car';
+import { CarImage } from 'src/app/models/carImage/carImage';
+import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
 
 @Component({
@@ -10,59 +12,73 @@ import { CarService } from 'src/app/services/car.service';
 })
 export class CarComponent implements OnInit {
   cars: Car[] = [];
-  currentCar:Car;
-  default:Car;
+  currentCar: Car;
+  carImages: CarImage[] = [];
+  default: Car;
   dataLoaded = false;
-  constructor(private carService: CarService, private activatedRoute:ActivatedRoute) {}
+  constructor(
+    private carService: CarService,
+    private activatedRoute: ActivatedRoute,
+    private carImageService: CarImageService
+  ) {}
 
   ngOnInit(): void {
-    
-    this.activatedRoute.params.subscribe(params=>{
-      
-      if(params["brandId"]){
-        this.getCarsByBrand(params["brandId"])
-      }else if (params["colorId"]){
-        this.getCarsByColor(params["colorId"])
-      }else{
-        this.getCars()
+    this.activatedRoute.params.subscribe((param) => {
+      if (param['brandId'] && param['colorId']) {
+        this.getCarListBrandIdColorId(param['brandId'],param['colorId']);
+      } else if (param['brandId']) {
+        this.getCarsByBrandId(param['brandId']);
+      } else if (param['colorId']) {
+        this.getCarsByColorId(param['colorId']);
+      } else{
+        this.getCars();
       }
-        
-      
-    })
+    });
   }
 
   getCars() {
-    this.carService.getCars().subscribe(response => {
+    this.carService.getCars().subscribe((response) => {
       this.cars = response.data;
       this.dataLoaded = true;
     });
   }
 
-  getCarsByBrand(brandId:number){
-    this.carService.getCarsByBrand(brandId).subscribe(response=>{
-      this.cars=response.data;
+  getCarsByBrandId(brandId: number) {
+    this.carService.getCarsByBrandId(brandId).subscribe((response) => {
+      this.cars = response.data;
       this.dataLoaded = true;
-    })
+    });
   }
 
-  getCarsByColor(colorId:number){
-    this.carService.getCarsByColor(colorId).subscribe(response=>{
-      this.cars=response.data;
+  getCarsByColorId(colorId: number) {
+    this.carService.getCarsByColorId(colorId).subscribe((response) => {
+      this.cars = response.data;
       this.dataLoaded = true;
-    })
+    });
   }
 
-  setCurrentAllCar(){
-    this.currentCar=this.default;
+  getCarListBrandIdColorId(brandId: number, colorId: number) {
+    this.carService
+      .getCarListBrandIdColorId(brandId, colorId)
+      .subscribe((response) => {
+        this.cars = response.data;
+        this.dataLoaded = true;
+      });
   }
 
-  getCurrentAllCarClass(){
-    if(this.currentCar==this.default){
-      return "list-group-item active"
-    }else{
-      return "list-group-item"
+  setCurrentAllCar() {
+    this.currentCar = this.default;
+  }
+
+  getCurrentAllCarClass() {
+    if (this.currentCar == this.default) {
+      return 'list-group-item active';
+    } else {
+      return 'list-group-item';
     }
   }
 
+  
 
+  
 }
