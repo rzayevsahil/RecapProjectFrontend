@@ -2,16 +2,15 @@
 
 ## İmage:
 
-![23 03](https://user-images.githubusercontent.com/58303745/112064818-053d2c00-8b7d-11eb-8b57-50b33ee43321.jpg)
-
-![image](https://user-images.githubusercontent.com/58303745/111520342-704bc480-8771-11eb-8754-806e8ca5eedb.png)
+![25 03](https://user-images.githubusercontent.com/58303745/112402916-d5ca2300-8d26-11eb-9ef4-a149c6e9c109.jpg)
+![25 03-1](https://user-images.githubusercontent.com/58303745/112402922-d95daa00-8d26-11eb-8eb8-17dac8aa9f92.jpg)
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4201/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
