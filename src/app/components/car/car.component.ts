@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Brand } from 'src/app/models/brand/brand';
 import { Car } from 'src/app/models/car/car';
 import { CarImage } from 'src/app/models/carImage/carImage';
+import { Color } from 'src/app/models/color/color';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
 
@@ -16,10 +19,15 @@ export class CarComponent implements OnInit {
   carImages: CarImage[] = [];
   default: Car; 
   dataLoaded = false;
+  filterCar="";
+  colorId:number = 0;
+  brandId:number = 0;
+  
   constructor(
     private carService: CarService,
     private activatedRoute: ActivatedRoute,
-    private carImageService: CarImageService
+    private carImageService: CarImageService,
+    private toastrService:ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -78,7 +86,37 @@ export class CarComponent implements OnInit {
     }
   }
 
-  
+  setSelectedColorId(colorId:number){
+    if(this.colorId== colorId){
+      return true;
+    }else{
+      return false;
+    }
+  }
 
+  setSelectedBrandId(brandId:number){
+    if(this.brandId== brandId){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  getSelectedBrandIdColorId(brandId:number,colorId:number){
+    if(this.currentCar.brandId == brandId || this.currentCar.colorId == colorId){
+      return "btn active";
+    }else{
+      return "btn";
+    }
+  }
+  setSelectedBrandIdColorId(){
+    this.currentCar.brandId=0;
+    this.currentCar.colorId=0;
+  }
+
+
+  addToCart(car:Car){
+    this.toastrService.show("Sepete")
+  }
   
 }

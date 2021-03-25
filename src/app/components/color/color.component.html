@@ -16,7 +16,13 @@
   >
     Colors
   </li>
-   <li *ngFor="let color of colors"
+
+  <div class="mb-3">
+    <label for="filterColor" class="form-label"><strong>Add color name:</strong></label>
+    <input type="text"  [(ngModel)]="filterColor" class="form-control" id="filterColor" placeholder="Search colors">
+  </div>
+
+   <li *ngFor="let color of colors | filterColor:filterColor"
     (click)="setCurrentColor(color)"
     routerLink="/cars/color/{{ color.colorId }}"
     [class]="getCurrentColorClass(color)"

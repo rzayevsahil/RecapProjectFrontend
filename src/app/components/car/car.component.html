@@ -7,37 +7,64 @@
 </div>
 
 
-
-
-
-
-
-
-<!-- <div class="card-group"> -->
-<!-- <div class="row row-cols-1 row-cols-md-3">
-  <div class="col">
-                              /cars/cardetail/{{car.carId}}
-<div class="card-group">
-    <div *ngFor="let carimage of carImages" class="card" style="width: 18rem">
-      <img src="https://localhost:44358{{carimage.imagePath}}" class="card-img-top" alt="random" />
-      <div *ngFor="let car of cars" class="card-body" >
-        <h5 class="card-title">{{ car.description }}</h5> 
-        <p class="card-text">{{ car.dailyPrice }} ₺</p>
-        <button style="text-align:right;" class="btn btn-primary">Details</button>
-      </div>
-    </div>
+<!-- <div class="col-md-12">
+  <div *ngIf="filterCar.length>1" class="alert alert-success">
+    A simple primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+    {{filterCar}} aradınız
   </div>
-</div>
 </div> -->
 
 
+<!-- <li
+    (click)="setCurrentAllCar()"
+    [class]="getCurrentAllCarClass()"
+    routerLink="/cars"
+    class="p-3 mb-2 bg-dark bg-gradient text-white"
+    aria-current="true"
+  >
+    Cars List
+  </li>
 
-<!-- <h4>{{title}}</h4>
-
-<div class="form-group">
-  <input class="form-control" placeholder="Search Car" [(ngModel)]="carFilterText" />
-  <small class="form-text text-muted" *ngIf="carFilterText"> now {{ carFilterText }} </small>
+<div class="mb-3">
+  <label for="filterCar" class="form-label">Add car name</label>
+  <input type="text"  [(ngModel)]="filterCar" class="form-control" id="filterCar" placeholder="Search cars">
 </div> -->
+<li
+    (click)="setCurrentAllCar()"
+    [class]="getCurrentAllCarClass()"
+    routerLink="/cars"
+    class="p-3 mb-2 bg-dark bg-gradient text-white"
+    aria-current="true"
+  >
+    Cars List
+  </li>
+<div class="row">
+
+  <div class="col-md-4" style="background: rgb(252, 75, 75); height: auto;">
+    <label for="cars"><strong>Brands :&nbsp;&nbsp;</strong></label>
+    <select style="height: auto;" class="from-select" [(ngModel)]="brandId">
+      <option *ngFor="let car of cars"
+      [selected]="setSelectedBrandId(brandId)">{{car.brandName}}</option>
+    </select>
+  </div>
+
+  <div class="col-md-4" style="background: rgb(23, 143, 103); height: auto;">
+    <label for="cars" style="height: auto;"><strong>Colors :&nbsp;&nbsp;</strong></label>
+    <select class="from-select" [(ngModel)]="colorId">
+      <option *ngFor="let car of cars"
+      [selected]="setSelectedColorId(colorId)">{{car.colorName}}</option>
+    </select>
+  </div>
+  <div class="col-md-4">    
+    <!-- *ngFor="let car of cars" (click)="setSelectedBrandIdColorId()" [class]="getSelectedBrandIdColorId(car.brandId,car.colorId)" routerLink="/cars/{{car.brandId}}/{{car.colorId}}" -->
+    <button class="btn-success" 
+    style="background: blueviolet;">
+      Filter</button>
+  </div>
+</div><br>
+
+
+
 
 <div class="row" *ngIf="cars.length == 0">
   <div class="col-md-12">
@@ -58,10 +85,11 @@
         <h5 class="card-title"> <b> {{car.brandName}} - {{car.modelYear}} </b></h5>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item"> <b>Color:</b> {{car.colorName}}</li>
-        <li class="list-group-item text-center"> <b> {{car.dailyPrice}}₺ </b> </li>
-        <li class="list-group-item text-center"> <button routerLink="/cars/cardetail/{{car.carId}}" type="button" class="btn btn-info w-100">Details</button> </li>
-        <!-- <li class="list-group-item text-center"> <button (click)="addToCart(cardetail)" type="button" class="btn btn-success w-100">Add To Cart</button> </li> -->
+        <li class="list-group-item"> <b>Color:</b> {{car.colorName |uppercase}}</li>
+        <li class="list-group-item text-center" style="color:#f00000;"><b>{{car.dailyPrice | vatAdded:10 |currency:'₺'}}</b></li>
+        <li class="list-group-item text-center"style="color:#808080;"><del><b> {{car.dailyPrice | currency:'₺'}}</b></del></li>
+        <li class="list-group-item text-center"> <button routerLink="/cars/cardetail/{{car.carId}}" type="button" class="btn btn-info w-100"><strong>Details</strong></button> </li>
+        <li class="list-group-item text-center" style="color:#d9ff00;"> <button (click)="addToCart" type="button" class="btn btn-warning w-100"><strong>Sepete ekle</strong></button> </li>
       </ul>
     </div>
   </div>

@@ -2,8 +2,9 @@
 
 ## İmage:
 
-![25 03](https://user-images.githubusercontent.com/58303745/112402916-d5ca2300-8d26-11eb-9ef4-a149c6e9c109.jpg)
-![25 03-1](https://user-images.githubusercontent.com/58303745/112402922-d95daa00-8d26-11eb-8eb8-17dac8aa9f92.jpg)
+![111](https://user-images.githubusercontent.com/58303745/112557108-18523500-8de5-11eb-9975-128c17e1ee45.jpg)
+<hr>
+![222](https://user-images.githubusercontent.com/58303745/112557220-69622900-8de5-11eb-9a3d-6acc6336f186.jpg)
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.

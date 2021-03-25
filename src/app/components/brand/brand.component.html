@@ -6,6 +6,9 @@
   <span class="visually-hidden">Loading...</span>
 </div>
 
+
+
+
 <ul *ngIf="dataLoaded == true" class="list-group">
   <li
     (click)="nullCurrentBrand()"
@@ -13,15 +16,15 @@
     routerLink="/cars"
     class="p-3 mb-2 bg-danger bg-gradient text-white"
     aria-current="true"
-  >
-    All Brands
-  </li>
-  <li
-    (click)="setCurrentBrand(brand)" 
-    routerLink="/cars/brand/{{brand.brandId}}"
-    *ngFor="let brand of brands"
-    [class]="getCurrentBrandClass(brand)"
-  >
+  >All Brands</li> 
+
+<div class="mb-3">
+  <label for="filterBrand" class="form-label"><strong>Add brand name:</strong></label>
+  <input type="text"  [(ngModel)]="filterBrand" class="form-control" id="filterBrand" placeholder="Search brands">
+</div>
+
+  <li *ngFor="let brand of brands | filterBrand:filterBrand" (click)="setCurrentBrand(brand)" 
+  routerLink="/cars/brand/{{brand.brandId}}" [class]="getCurrentBrandClass(brand)">
     {{ brand.brandName }}
   </li>
-</ul>
+</ul><hr>

@@ -17,6 +17,7 @@ export class CarDetailComponent implements OnInit {
   carImages:CarImage[]=[];
   currentImage:CarImage;
   dataLoaded=false;
+  filterCar="";
   
   constructor(
     private carService: CarService,

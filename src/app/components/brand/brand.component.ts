@@ -11,6 +11,7 @@ export class BrandComponent implements OnInit {
   brands:Brand[]=[]
   currentBrand:Brand={brandId:0,brandName:""};
   dataLoaded=false;
+  filterBrand="";
 
   constructor(private brandService:BrandService) { }
 
