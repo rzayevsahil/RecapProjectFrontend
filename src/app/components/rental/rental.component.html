@@ -1,11 +1,11 @@
-<div
+<!-- <div
   *ngIf="dataLoaded == false"
   class="spinner-border text-primary"
   role="status"
 >
   <span class="visually-hidden">Loading...</span>
 </div>
-<table *ngIf="dataLoaded == true" class="table" > 
+<table *ngIf="dataLoaded == true" class="table" routerLink="/cars/cardetail/rental/:carId"> 
   <thead>
     <tr>
       <th class="p-3 mb-2 bg-dark text-white">Id</th>
@@ -26,4 +26,80 @@
     <td class="p-3 mb-2 bg-secondary text-white">{{ rental.rentDate }}</td>
     <td class="p-3 mb-2 bg-dark text-white">{{ rental.returnDate }}</td>
   </tr>
-</table>
+</table>  -->
+<!-- <div class="d-grid gap-2">
+  
+<button type="button" routerLink="/cars/cardetail/rental/:carId" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Kirala</button></div>
+<div> -->
+  
+  <!-- <form [formGroup]="addRentCarForm" (ngSubmit)="checkCarRentable()">
+  <div>
+    <div style="text-align:right; width:150%; padding:0;">
+  <div class="row">
+    <div class="col-md-4">
+      <label for="rentDate" style="text-align:left; width:150%; padding:0;"><b>Alış Tarihi:</b></label>
+  <input formControlName="rentDate" type="date" class="form-control" id="rentDate">
+  </div>
+  </div><br>
+
+  <div class="row">
+  <div class="col-md-4">
+    <label for="rentDate" style="text-align:left; width:150%; padding:0;"><b>Teslim Tarihi:</b></label>
+    <input formControlName="returnDate" type="date" class="form-control"  id="returnDate">
+  </div>
+  </div><br>  
+     
+  <div class="row">
+    <div class="col-md-4">
+      <label for="customerSelect" style="text-align:left; width:150%; padding:0;"><b>Müşteriler:</b></label>
+    <select formControlName="customerId" id="customerSelect" class="form-select" aria-label="Müşteriler"> 
+      <option *ngFor="let customer of customers" value="{{customer.customerId}}">{{customer.firstName}} {{customer.lastName}}</option>
+    </select>
+  </div>
+  </div>
+
+</div><br>
+  <div  class="col-md-8" style="text-align:center; width:85%; padding:5;">
+    <button type="button" class="btn btn-primary" style="background: rgb(5, 167, 13);" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Ödeme yap</button></div></div></form> -->
+
+        
+<form [formGroup]="addRentCarForm">
+  <div class="row">
+     <div class="col-lg-4">
+        <div class="form-floating mb-3">
+           <input type="datetime-local" class="form-control" id="rentDate"
+                  formControlName="rentDate" placeholder="rentDate">
+           <label for="rentDate">Kiralama Tarihi</label>
+        </div>
+     </div>
+
+     <div class="col-lg-4">
+        <div class="form-floating">
+           <input type="datetime-local" class="form-control" id="returnDate"
+                  formControlName="returnDate" placeholder="returnDate">
+           <label for="returnDate">Dönüş Tarihi</label>
+        </div>
+     </div>
+     <div class="col-lg-4">
+      <div class="form-floating mb-3">
+        <select class="form-select" id="customers" formControlName="customerId">
+           <option value="">-- Müşteri Seçiniz --</option>
+
+           <option *ngFor="let customer of customers" [ngValue]="customer.customerId">
+              {{ customer.firstName }} {{customer.lastName}}
+           </option>
+        </select>
+        <label for="customers">Müşteri</label>
+     </div>
+     </div>
+  </div>
+
+  <div class="text-end">
+     <button *ngIf="carId" class="btn btn-sm btn-primary" (click)="checkCarRentable()" [disabled]="addRentCarForm.invalid">
+        <i class="bi-credit-card-fill me-1"></i> Kirala
+     </button>
+  </div>
+</form>
+   

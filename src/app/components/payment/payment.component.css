@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+html {
+    height: 100%
+}
+
+body {
+    background-color: #000000
+}
+
+.card0 {
+    margin: 40px 12px 15px 12px;
+    border: 0
+}
+
+.card1 {
+    margin: 0;
+    padding: 15px;
+    padding-top: 25px;
+    padding-bottom: 0px;
+    background: #263238;
+    height: 100%
+}
+
+.bill-head {
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 30px
+}
+
+.line {
+    border-right: 1px grey solid
+}
+
+.bill-date {
+    color: #BDBDBD
+}
+
+.red-bg {
+    margin-top: 25px;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: #0dbd1b;
+    padding-left: 20px !important;
+    padding: 30px 20px 35px 30px
+}
+
+#total {
+    margin-top: 0px;
+    padding-left: 125px;
+    color: rgb(255, 255, 255);
+}
+
+#total-label {
+    margin-bottom: 0px;
+    color: #000000;
+    padding-left: 150px;
+    font-weight: bolder;
+}
+
+#total-label2 {
+    margin-bottom: 0px;
+    color: #000000;
+    padding-left: 125px;
+    font-weight: bolder;
+}
+
+#heading1 {
+    color: #00d9ff;
+    font-size: 24px;
+    padding-left: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#heading2 {
+    font-size: 30px;
+    color: #d50000;
+    font-family: serif;
+
+}
+
+.placeicon {
+    font-family: fontawesome !important
+}
+
+.card2 {
+    padding: 25px;
+    margin: 0;
+    height: 100%
+}
+
+.form-card .pay {
+    font-weight: bold
+}
+
+.form-card input,
+.form-card textarea {
+    padding: 10px 8px 10px 8px;
+    border: none;
+    border: 1px solid lightgrey;
+    border-radius: 0px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 14px;
+    letter-spacing: 1px
+}
+
+.form-card input:focus,
+.form-card textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: none;
+    font-weight: bold;
+    border: 1px solid gray;
+    outline-width: 0
+}
+
+.btn-info {
+    color: #ffffff !important
+}
+
+.radio-group {
+    position: relative;
+    margin-bottom: 25px
+}
+
+.radio {
+    display: inline-block;
+    width: 204;
+    height: 64;
+    border-radius: 0;
+    background: lightblue;
+    box-sizing: border-box;
+    border: 2px solid lightgrey;
+    cursor: pointer;
+    margin: 8px 25px 8px 0px
+}
+
+.radio:hover {
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2)
+}
+
+.radio.selected {
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.4)
+}
+
+.fit-image {
+    width: 100%;
+    object-fit: cover
+}
+
+#writestyle{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(253, 0, 211);
+}
+
+#writestyle2{
+    font-family:serif;
+}

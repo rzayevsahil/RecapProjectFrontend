@@ -1,20 +1,23 @@
-<div
+<!-- <div class="container"> -->
+  <div class="row">
+    <div class="col-md-3">
+      <app-brand></app-brand>
+      <app-color></app-color>
+    </div>
+    <div class="col-md-9">
+      <div
   *ngIf="dataLoaded == false"
   class="spinner-border text-primary"
   role="status"
 >
   <span class="visually-hidden">Loading...</span>
 </div>
-
-
 <!-- <div class="col-md-12">
   <div *ngIf="filterCar.length>1" class="alert alert-success">
     A simple primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
     {{filterCar}} aradınız
   </div>
 </div> -->
-
-
 <!-- <li
     (click)="setCurrentAllCar()"
     [class]="getCurrentAllCarClass()"
@@ -40,31 +43,35 @@
   </li>
 <div class="row">
 
-  <div class="col-md-4" style="background: rgb(252, 75, 75); height: auto;">
-    <label for="cars"><strong>Brands :&nbsp;&nbsp;</strong></label>
-    <select style="height: auto;" class="from-select" [(ngModel)]="brandId">
-      <option *ngFor="let car of cars"
-      [selected]="setSelectedBrandId(brandId)">{{car.brandName}}</option>
+  <div class="col-md-3" >
+    <label for="cars"><strong>Brands :</strong></label>
+    <select  class="form-select"  [(ngModel)]="brandId" aria-label="Default select example">
+      <option value=0>All Brands</option>
+      <!-- <option (click)="setCurrentAllCar()"
+      [class]="getCurrentAllCarClass()" routerLink="/cars"
+    class="p-3 mb-2 bg-danger bg-gradient text-white" aria-current="true">All Brands</option>  -->
+      <option *ngFor="let brand of brands" [value]="brand.brandId" 
+      [selected]="setSelectedBrandId(brand.brandId)">{{brand.brandName}}</option>
+    </select>
+  </div>&nbsp;
+ 
+
+  <div class="col-md-3">
+    <label for="cars"><strong>Colors :</strong></label>
+    <select class="form-select" [(ngModel)]="colorId"> 
+      <option value=0>All Colors</option>
+      <option *ngFor="let color of colors" [value]="color.colorId"
+      [selected]="setSelectedColorId(color.colorId)">{{color.colorName}}</option>
     </select>
   </div>
+  <div class="col-md-4 btn-goback"><br>   
+    <button class="btn btn-xs btn-success" (click)="filterClick()"   type="button"
+    style="background: rgb(3, 168, 39);" class="btn btn-xs btn-success"><b>Filter</b></button>&nbsp;
 
-  <div class="col-md-4" style="background: rgb(23, 143, 103); height: auto;">
-    <label for="cars" style="height: auto;"><strong>Colors :&nbsp;&nbsp;</strong></label>
-    <select class="from-select" [(ngModel)]="colorId">
-      <option *ngFor="let car of cars"
-      [selected]="setSelectedColorId(colorId)">{{car.colorName}}</option>
-    </select>
+      <button routerLink="/cars" type="button" style="background: rgb(255, 0, 0);" 
+      class="btn btn-xs btn-success"><b>Clean</b></button>
   </div>
-  <div class="col-md-4">    
-    <!-- *ngFor="let car of cars" (click)="setSelectedBrandIdColorId()" [class]="getSelectedBrandIdColorId(car.brandId,car.colorId)" routerLink="/cars/{{car.brandId}}/{{car.colorId}}" -->
-    <button class="btn-success" 
-    style="background: blueviolet;">
-      Filter</button>
-  </div>
-</div><br>
-
-
-
+</div>
 
 <div class="row" *ngIf="cars.length == 0">
   <div class="col-md-12">
@@ -76,21 +83,23 @@
 
 <div class="row" *ngIf="dataLoaded==true" >
   <div class="col-md-4" *ngFor="let car of cars">
-    <!-- | carFilter:carFilterText -->
-    <div class="card">
+    <div class="card" style="margin-top: 15px;">
       <div>
         <img  src="https://localhost:44358/{{ car.imagePath ? car.imagePath : '/images/null.jpg' }}" class="card-img-top" width="auto" height="150px">
        </div>
-      <div class="card-body" style="background-color:ghostwhite;">
-        <h5 class="card-title"> <b> {{car.brandName}} - {{car.modelYear}} </b></h5>
+      <div class="card-body" style="background-color:rgb(255, 255, 255);">
+        <h5 class="card-title"><b> {{car.brandName}} - {{car.modelYear}} </b></h5>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item"> <b>Color:</b> {{car.colorName |uppercase}}</li>
         <li class="list-group-item text-center" style="color:#f00000;"><b>{{car.dailyPrice | vatAdded:10 |currency:'₺'}}</b></li>
         <li class="list-group-item text-center"style="color:#808080;"><del><b> {{car.dailyPrice | currency:'₺'}}</b></del></li>
-        <li class="list-group-item text-center"> <button routerLink="/cars/cardetail/{{car.carId}}" type="button" class="btn btn-info w-100"><strong>Details</strong></button> </li>
+        <li class="list-group-item text-center"> <button routerLink="/cars/cardetail/{{car.id}}" type="button" class="btn btn-info w-100"><strong>Details</strong></button> </li>
         <li class="list-group-item text-center" style="color:#d9ff00;"> <button (click)="addToCart" type="button" class="btn btn-warning w-100"><strong>Sepete ekle</strong></button> </li>
       </ul>
     </div>
   </div>
 </div>
+    </div>
+  </div>
+<!-- </div> -->

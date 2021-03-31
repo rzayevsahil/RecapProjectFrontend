@@ -1,0 +1,77 @@
+<div class="container-fluid" routerLink="/payment">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-11">
+            <div class="card card0 rounded-0">
+                <div class="row">
+                    <div class="col-md-5 d-md-block d-none p-0 box">
+                        <div class="card rounded-0 border-0 card1" id="bill">
+                            <h3 id="heading1">Payment Summary</h3><br>
+                            <div class="row">
+                                <div class="col-lg-5 col-4 mt-3 line">
+                                    <h2 id="writestyle" class="bill-head">Brand</h2>
+                                </div>
+                                <!-- <div class="col-lg-4 col-5 mt-4"> -->
+                                <div class="col-lg-7 col-8 mt-3">
+                                    <h2 id="writestyle2" class="bill-head px-xl-2 px-lg-5">Brand Name</h2>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-lg-5 col-4 mt-3 line">
+                                    <h2 id="writestyle" class="bill-head">Color</h2>
+                                </div>
+                                <div class="col-lg-7 col-8 mt-3">
+                                    <h2 id="writestyle2" class="bill-head px-xl-2 px-lg-4">Color Name</h2>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-lg-5 col-4 mt-3 line">
+                                    <h2 id="writestyle" class="bill-head">Model Year</h2>
+                                </div>
+                                <div class="col-lg-7 col-8 mt-3">
+                                    <h2 id="writestyle2" class="bill-head px-xl-2">2021</h2>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-lg-5 col-4 mt-3 line">
+                                    <h2 id="writestyle" class="bill-head">Description</h2> 
+                                </div>
+                                <div class="col-lg-7 col-8 mt-3">
+                                    <h2 id="writestyle2" class="bill-head px-xl-2">Yeni model araba</h2>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-md-12 red-bg">
+                                    <p class="bill-date" id="total-label">Total Price</p>
+                                    <h2 class="bill-head" id="total">₺ 523.65</h2> <small class="bill-date" id="total-label2">Price includes all taxes</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-sm-12 p-0 box">
+                        <div class="card rounded-0 border-0 card2" id="paypage">
+                            <div class="form-card">
+                                <h2 id="heading2"><b>Payment</b></h2><br>
+                                <div class="radio-group">
+                                    <div class='radio' data-value="credit"><img src="https://i.imgur.com/28akQFX.jpg" width="190px" height="60px"></div>
+                                    <div class='radio' data-value="paypal"><img src="https://i.imgur.com/5QFsx7K.jpg" width="190px" height="60px"></div> <br>
+                                </div> <label class="pay">Name on Card</label> <input type="text" name="holdername" placeholder="John Smith">
+                                <div class="row">
+                                    <div class="col-8 col-md-6"> <label class="pay">Card Number</label> <input type="text" name="cardno" id="cr_no" placeholder="0000-0000-0000-0000" minlength="19" maxlength="19"> </div>
+                                    <div class="col-4 col-md-6"> <label class="pay">CVV</label> <input type="password" name="cvcpwd" placeholder="&#9679;&#9679;&#9679;" class="placeicon" minlength="3" maxlength="3"> </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12"> <label class="pay">Expiration Date</label> </div>
+                                    <div class="col-md-12"> <input type="text" name="exp" id="exp" placeholder="MM/YY" minlength="5" maxlength="5"> </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"> <input type="submit" value="MAKE A PAYMENT &nbsp; " class="btn btn-info placeicon"> </div>
+                                    <button type="button" class="btn btn-primary" routerLink="/cars/cardetail" style="background: darkblue;">Back</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

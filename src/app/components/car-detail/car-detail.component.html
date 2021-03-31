@@ -1,139 +1,158 @@
-<!-- <h3 style="text-decoration: dashed;" class="car-header">Car Details</h3> -->
-<!-- <caption class="p-3 mb-2 bg-dark bg-gradient text-info bg-dark">
-  Car Details
-</caption> -->
-<!-- <ul *ngIf="dataLoaded == true">
-  <li class="list-group-item" *ngFor="let car of carImages">
-    <img
-      src="https://localhost:44358/{{ car.imagePath }}"
-      alt="https://localhost:44358/{{ car.imagePath }}"
-    />
-    <img
-      *ngIf="car.imagePath == null"
-      src="https://localhost:44358/"
-      alt="https://localhost:44358/"
-    />
-  </li>
-</ul> -->
-
-<!-- <div id="carouselExampleDark" class="carousel carousel-fade slide carousel-dark" data-bs-ride="carousel">
-
-      <ol class="carousel-indicators">
-        <li data-bs-target="#carouselExampleDark"></li>
-      </ol>
-
-      <div class="carousel-inner">
-        <div [class]="getSliderClassName(car)" *ngFor="let car of carImages" data-bs-interval="3000">
-          <img src="https://localhost:44358/{{ car.imagePath }}" class="d-block w-100" alt="https://localhost:44358/{{ car.imagePath }}" height="400"/>
-        </div>
-
-      </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExampleDark"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExampleDark"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-
-    </div> -->
-
+<!-- <div class="container"> -->
 <div class="row">
-  <div class="col-md-8">
-    <div
-      id="carouselExampleIndicators"
-      class="carousel carousel-fade slide carousel-dark"
-      data-bs-ride="carousel"
-    >
-      <div class="carousel-inner">
-        <div
-          [class]="getSliderClassName(carimageUrl)"
-          *ngFor="let carimageUrl of carImages"
-        >
-          <img class="rounded float-start"
-            src="https://localhost:44358/{{ carimageUrl.imagePath }}"
-            class="d-block w-100"
-            height="380"
-          />
-        </div>
-
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
+  <div class="col-md-3">
+    <app-brand></app-brand>
+    <app-color></app-color>
   </div>
+  <div class="col-md-9">
+    <br />
+    <div class="row">
+      <div class="col-md-8">
+        <div
+          id="carouselExampleIndicators"
+          class="carousel carousel-fade slide carousel-dark"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div
+              [class]="getSliderClassName(carimageUrl)"
+              *ngFor="let carimageUrl of carImages"
+            >
+              <img
+                class="rounded float-start"
+                src="https://localhost:44358/{{ carimageUrl.imagePath }}"
+                class="d-block w-100"
+                height="365"
+              />
+            </div>
 
-  <div class="col-md-4"><br>
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">
-          <strong> {{ carDetails.brandName }}</strong>
-        </h5>
-        <p class="card-text">{{ carDetails.description }}</p>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
       </div>
-
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Brand : {{ carDetails.brandName }}</li>
-        <li class="list-group-item">Color : {{ carDetails.colorName }}</li>
-        <li class="list-group-item">Model Year : {{ carDetails.modelYear }}</li>
-        <li class="list-group-item">Fiyat :<strong style="color:#f00000;">{{carDetails.dailyPrice | vatAdded:10 |currency:'₺'}}</strong></li>
-        <li class="list-group-item">
-          Daily Price : <del><strong style="color:#808080;">{{ carDetails.dailyPrice | currency:'₺'}}</strong></del>
-        </li>
-      </ul>
-
-      <div class="card-body">
-        <button type="button" class="btn btn-primary">Kirala</button>
-      </div>
+      <!-- <div class="w3-card-4" style="background-color: #2196f3;">
+    <div class="w3-display-container w3-text-white">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div style="background-color: #2196f3;" class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div  [class]="getSliderClassName(carimageUrl)"
+              *ngFor="let carimageUrl of carImages">
+                <img style="max-height:280px;background-size:contain;" src="https://localhost:44358/{{ carimageUrl.imagePath }}"class="d-block w-100" alt="" >
+              </div>
+             
+            </div>
+            <button style="background-color: #0d47a1;" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button style="background-color:#0d47a1;" class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
     </div>
+  </div> -->
+      <div class="col-md-4">
+        <div *ngIf="carDetails" class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <strong> {{ carDetails.brandName }}</strong>
+            </h5>
+            <p class="card-text">{{ carDetails.description }}</p>
+          </div>
+
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Brand : {{ carDetails.brandName }}</li>
+            <li class="list-group-item">Color : {{ carDetails.colorName }}</li>
+            <li class="list-group-item">
+              Model Year : {{ carDetails.modelYear }}
+            </li>
+            <li class="list-group-item">
+              Fiyat :<strong style="color: #f00000">{{
+                carDetails.dailyPrice | vatAdded: 10 | currency: "₺"
+              }}</strong>
+            </li>
+            <li class="list-group-item">
+              Daily Price :
+              <del
+                ><strong style="color: #808080">{{
+                  carDetails.dailyPrice | currency: "₺"
+                }}</strong></del
+              >
+            </li>
+          </ul>
+
+          <!-- <div class="card-body">
+            <button type="button" class="btn btn-success" (click)="kirala()">
+              Kirala
+            </button> -->
+
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+            <button
+              type="button"
+              class="btn btn-primary"
+              routerLink="/cars"
+              style="background: darkblue"
+            >
+              Geri
+            </button>
+          </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        </div>
+        <div><br><br>
+        <app-rental></app-rental>
+      </div>
+
+      <br />
+    </div>
+    
+
+    
+      <!-- <div [style]="appRentalClass"> -->
+      
+      <!-- </div> -->
+    <!-- </div> -->
   </div>
 </div>
-
-<!-- <table *ngIf="dataLoaded == true" class="table">
-  <thead>
-    <th>Id</th>
-    <th>Brand</th>
-    <th>Color</th>
-    <th>Model Year</th>
-    <th>Daily Price</th>
-    <th>Description</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td>{{ carDetails.carId }}</td>
-      <td>{{ carDetails.brandName }}</td>
-      <td>{{ carDetails.colorName }}</td>
-      <td>{{ carDetails.modelYear }}</td>
-      <td>{{ carDetails.dailyPrice }} ₺</td>
-      <td>{{ carDetails.description }}</td>
-    </tr>
-  </tbody>
-</table> -->
+<!-- </div> -->

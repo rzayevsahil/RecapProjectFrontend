@@ -2,6 +2,15 @@
 
 ## İmage:
 
+![01 04(3)](https://user-images.githubusercontent.com/58303745/113212010-4624f700-9287-11eb-8f07-527b271e42f1.jpg)
+
+
+![01 04(1)](https://user-images.githubusercontent.com/58303745/113212030-4a511480-9287-11eb-9ec8-0325cc0fc9bc.jpg)
+
+
+![01 04(2)](https://user-images.githubusercontent.com/58303745/113212037-4d4c0500-9287-11eb-9637-d40e01dda3f9.jpg)
+
+
 ![111](https://user-images.githubusercontent.com/58303745/112557108-18523500-8de5-11eb-9975-128c17e1ee45.jpg)
 <hr>
 

@@ -12,6 +12,8 @@ export class ColorComponent implements OnInit {
   currentColor:Color={colorId:0,colorName:""};;
   dataLoaded=false;
   filterColor=""
+  colorId:number;
+  brandId:number;
 
   constructor(private colorService:ColorService) { }
 
@@ -20,7 +22,7 @@ export class ColorComponent implements OnInit {
   }
 
   getColors(){
-    this.colorService.gerColors().subscribe(response=>{
+    this.colorService.getColors().subscribe(response=>{
       this.colors=response.data;
       this.dataLoaded=true; 
     })

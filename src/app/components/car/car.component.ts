@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/brand/brand';
 import { Car } from 'src/app/models/car/car';
+import { CarDetail } from 'src/app/models/car/carDetail';
 import { CarImage } from 'src/app/models/carImage/carImage';
 import { Color } from 'src/app/models/color/color';
+import { BrandService } from 'src/app/services/brand.service';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
+import { ColorService } from 'src/app/services/color.service';
 
 @Component({
   selector: 'app-car',
@@ -14,31 +17,47 @@ import { CarService } from 'src/app/services/car.service';
   styleUrls: ['./car.component.css'],
 })
 export class CarComponent implements OnInit {
-  cars: Car[] = [];
+  cars: CarDetail[] = [];
   currentCar: Car;
   carImages: CarImage[] = [];
   default: Car; 
   dataLoaded = false;
   filterCar="";
-  colorId:number = 0;
-  brandId:number = 0;
+  colorId:number;
+  brandId:number;
+
+  brands: Brand[] = [];
+  colors: Color[] = [];
   
   constructor(
-    private carService: CarService,
+    private carService: CarService, 
     private activatedRoute: ActivatedRoute,
     private carImageService: CarImageService,
-    private toastrService:ToastrService
+    private toastrService:ToastrService,
+    private colorService: ColorService,
+    private brandService: BrandService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
+    this.getAllColors();
+    this.getAllBrands();
     this.activatedRoute.params.subscribe((param) => {
       if (param['brandId'] && param['colorId']) {
         this.getCarListBrandIdColorId(param['brandId'],param['colorId']);
+        this.colorId=param['colorId'];
+        this.brandId=param['brandId']
       } else if (param['brandId']) {
         this.getCarsByBrandId(param['brandId']);
+        this.brandId=param['brandId'];
+        this.colorId=0
       } else if (param['colorId']) {
         this.getCarsByColorId(param['colorId']);
+        this.colorId=param['colorId'];
+        this.brandId=0
       } else{
+        this.colorId=0;
+        this.brandId=0
         this.getCars();
       }
     });
@@ -48,6 +67,7 @@ export class CarComponent implements OnInit {
     this.carService.getCars().subscribe((response) => {
       this.cars = response.data;
       this.dataLoaded = true;
+      console.log(this.cars);
     });
   }
 
@@ -118,5 +138,31 @@ export class CarComponent implements OnInit {
   addToCart(car:Car){
     this.toastrService.show("Sepete")
   }
+
+
+  getAllBrands() {
+    this.brandService.getBrands().subscribe((response) => {
+      this.brands = response.data;
+    });
+  }
+
+  getAllColors() {
+    this.colorService.getColors().subscribe((response) => {
+      this.colors = response.data;
+    });
+  }
+  filterClick(){
+    if (this.brandId >0 && this.colorId > 0) {
+      this.router.navigate(['/cars/brand/' + this.brandId +'/color/' +this.colorId])
+    } else   if (this.brandId >0) {
+      this.router.navigate(['/cars/brand/' + this.brandId ])
+    }else    {
+      this.router.navigate(['/cars/color/' + this.colorId ])
+    }
+  }
   
 }
+
+
+
+// routerLink="/cars/{{brandId}}/{{colorId}}"
