@@ -12,17 +12,17 @@ import { ResponseModel } from '../models/responseModel';
 export class RentalService {
 
   rentingCar: Rental;
-  apiUrl = "https://localhost:44358/api/";
+  apiUrl = "https://localhost:44358/api/rentals/";
 
   constructor(private httpClient: HttpClient) { }
 
   getRentals(): Observable<ListResponseModel<RentalDetail>> {
-    let newPath = this.apiUrl + "rentals/getrentaldetails";
+    let newPath = this.apiUrl + "getrentaldetails";
     return this.httpClient.get<ListResponseModel<RentalDetail>>(newPath);
   }
 
   getRentalsByCarId(carId: number): Observable<ListResponseModel<RentalDetail>> {
-    let newPath = this.apiUrl + "rentals/getrentaldetailbycarid?carId=" + carId;
+    let newPath = this.apiUrl + "getrentaldetailbycarid?carId=" + carId;
     return this.httpClient.get<ListResponseModel<RentalDetail>>(newPath);
   }
 
@@ -38,8 +38,8 @@ export class RentalService {
     this.rentingCar = null
   }
 
-  add(rental: Rental): Observable<ResponseModel> {
-    let newPath = this.apiUrl + "rentals/add";
+  addRental(rental: Rental):Observable<ResponseModel> {
+    let newPath = this.apiUrl + "add";
     return this.httpClient.post<ResponseModel>(newPath, rental);
   }
 }

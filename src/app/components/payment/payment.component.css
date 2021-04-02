@@ -45,28 +45,28 @@ body {
     margin-top: 25px;
     margin-left: 0px;
     margin-right: 0px;
+    margin-bottom: 20px;
     background-color: #0dbd1b;
     padding-left: 20px !important;
-    padding: 30px 20px 35px 30px
+    padding: 21px 50px 50px 50px;
 }
 
 #total {
-    margin-top: 0px;
-    padding-left: 125px;
+    margin-top: 10px;
+    padding-left: 200px;
     color: rgb(255, 255, 255);
+    height:70px;
 }
 
 #total-label {
-    margin-bottom: 0px;
     color: #000000;
-    padding-left: 150px;
+    padding-left: 200px;
     font-weight: bolder;
 }
 
 #total-label2 {
-    margin-bottom: 0px;
     color: #000000;
-    padding-left: 125px;
+    padding-left: 168px;
     font-weight: bolder;
 }
 
@@ -163,9 +163,24 @@ body {
 
 #writestyle{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: rgb(253, 0, 211);
+    color: rgb(6, 212, 178);
+    width: 220px;
 }
 
 #writestyle2{
     font-family:serif;
+}
+
+#cvv{
+    width:50px;
+}
+
+#expirationDate{
+    width: 20px;
+    
+}
+
+#blabla{
+    height:170px;
+    
 }

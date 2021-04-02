@@ -3,8 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/car/car';
 import { CarDetail } from 'src/app/models/car/carDetail';
 import { CarImage } from 'src/app/models/carImage/carImage';
+import { Rental } from 'src/app/models/rental/rental';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
+import { RentalService } from 'src/app/services/rental.service';
 
 @Component({
   selector: 'app-car-detail',
@@ -16,7 +18,7 @@ export class CarDetailComponent implements OnInit {
 
   carDetails: CarDetail;
   cardetails: Car[] = [];
-  carImages: CarImage[] = [];
+  carImages: CarImage[] = []; 
   currentImage: CarImage;
   dataLoaded = false;
   filterCar = "";
@@ -26,7 +28,8 @@ export class CarDetailComponent implements OnInit {
   constructor(
     private carService: CarService,
     private activatedRoute: ActivatedRoute,
-    private carImageService: CarImageService
+    private carImageService: CarImageService,
+    private rentalService:RentalService
   ) { }
 
   ngOnInit(): void {
@@ -68,4 +71,6 @@ export class CarDetailComponent implements OnInit {
       this.deneme=true;
     }
   }
+
+  
 }
