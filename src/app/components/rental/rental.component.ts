@@ -7,9 +7,7 @@ import { Customer } from 'src/app/models/customer/customer';
 import { Rental } from 'src/app/models/rental/rental';
 import { CarService } from 'src/app/services/car.service';
 import { CustomerService } from 'src/app/services/customer.service';
-import { PaymentService } from 'src/app/services/payment.service';
 import { RentalService } from 'src/app/services/rental.service';
-import { PaymentComponent } from '../payment/payment.component';
 
 @Component({
    selector: 'app-rental',
@@ -51,6 +49,7 @@ export class RentalComponent implements OnInit {
       this.customerService.getCustomerDetails().subscribe(response => {
          this.customers = response.data;
         this.carservice.getCarDetailByCarId(this.rentalService.getRentingCar().carId)
+        this.totalPrice
       })
    }
 
@@ -112,5 +111,17 @@ export class RentalComponent implements OnInit {
          return true;
       });
    } 
+
+   calculatePayment() {
+      var date1 = new Date(this.rental.returnDate.toString());
+      var date2 = new Date(this.rental.rentDate.toString());
+      var difference = date1.getTime() - date2.getTime();
+      var rentDays = Math.ceil(difference / (1000 * 3600 * 24));
+      this.totalPrice = rentDays * this.carDetail.dailyPrice;
+    }
+
+    getRentingCar(): Rental {
+      return this.rentalService.getRentingCar();
+    }
      
 }

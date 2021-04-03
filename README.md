@@ -1,20 +1,57 @@
 # CarRentalFrontend
 
-## İmage:
+## Araba Listesi:
+
+![8](https://user-images.githubusercontent.com/58303745/113471483-a8d7e780-946d-11eb-98f8-ed91eb923c38.jpg)
+
+## Kiralanmış aracı kiralayamazsın:
 
 ![01 04(3)](https://user-images.githubusercontent.com/58303745/113212010-4624f700-9287-11eb-8f07-527b271e42f1.jpg)
 
+## Filter butonu:
 
-![01 04(1)](https://user-images.githubusercontent.com/58303745/113212030-4a511480-9287-11eb-9ec8-0325cc0fc9bc.jpg)
+![4](https://user-images.githubusercontent.com/58303745/113471245-4af6d000-946c-11eb-84b9-a62c0aedbcce.jpg)
+
+![5](https://user-images.githubusercontent.com/58303745/113471255-5b0eaf80-946c-11eb-8ad4-5d84234c260c.jpg)
+
+![3](https://user-images.githubusercontent.com/58303745/113471259-5cd87300-946c-11eb-9431-b3acb45f07c9.jpg)
+
+## Detail:
+
+![1](https://user-images.githubusercontent.com/58303745/113471369-e1c38c80-946c-11eb-9cb7-40c6b01add42.jpg)
+
+# Pay butonuna tıkladığımızda:
+## Bu günkü tarihden önceki tarih seçilmişse:
+
+![2](https://user-images.githubusercontent.com/58303745/113471456-6ca48700-946d-11eb-9814-560f6dd172ca.jpg)
+
+## Dönüş tarihi kiralama tarihinden önceyse:
+
+![6](https://user-images.githubusercontent.com/58303745/113471458-6e6e4a80-946d-11eb-9db8-0d9e741b547d.jpg)
+
+## Ödeme sayfasına yönlendirilme:
+
+![7](https://user-images.githubusercontent.com/58303745/113471536-197f0400-946e-11eb-8b06-add00b7a8684.jpg)
+
+## Ödeme sayfasında yanlış bilgi girersek:
+
+![9](https://user-images.githubusercontent.com/58303745/113471571-4e8b5680-946e-11eb-9474-bc7db235b614.jpg)
+
+## Müşterinin kartında yeterli para yoksa:
+
+![11](https://user-images.githubusercontent.com/58303745/113471575-50edb080-946e-11eb-9b85-8dea1fb3ce51.jpg)
+
+## Araba başarıyla kiralandı:
+
+![10](https://user-images.githubusercontent.com/58303745/113471610-8d211100-946e-11eb-8a42-8237d23cd3e7.jpg)
 
 
-![01 04(2)](https://user-images.githubusercontent.com/58303745/113212037-4d4c0500-9287-11eb-9637-d40e01dda3f9.jpg)
 
 
-![111](https://user-images.githubusercontent.com/58303745/112557108-18523500-8de5-11eb-9975-128c17e1ee45.jpg)
-<hr>
 
-![222](https://user-images.githubusercontent.com/58303745/112557220-69622900-8de5-11eb-9a3d-6acc6336f186.jpg)
+
+
+
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.

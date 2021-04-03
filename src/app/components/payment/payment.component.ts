@@ -133,12 +133,13 @@ export class PaymentComponent implements OnInit {
     this.cardExist = await this.isCardExist(verifyCard);
     if (this.cardExist) {
       this.card = await this.getCreditCardByCardNumber(this.cardNumber);
-      if (this.card.moneyInTheCard as number >= this.totalPrice) {
-        this.card.moneyInTheCard = this.card.moneyInTheCard as number - this.paymentAmount;
+      if (this.card.moneyInTheCard as number >= (this.totalPrice*0.9)) {
+        this.card.moneyInTheCard = this.card.moneyInTheCard - this.totalPrice*0.9;
         this.updateCard(verifyCard);
         this.rentalService.addRental(this.getRentingCar()).subscribe();
         
         this.toastrService.success('Arabayı kiraladınız', 'İşlem başarılı');
+        this.router.navigate(['/cars']);
       } else {
         this.toastrService.error('Kartınızda yeterli bakiye yoktur', 'Hata');
       }

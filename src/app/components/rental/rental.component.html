@@ -99,7 +99,9 @@
 
   <div class="col-md-8" style="text-align:center; width: 40px;">
      <button style="background-color: rgba(28, 167, 58, 0.986); width: 470px; height: 40px; align-items:flex-start ;" *ngIf="carId" class="btn btn-sm btn-primary" (click)="checkCarRentable()" [disabled]="addRentCarForm.invalid">
-        <i class="bi-credit-card-fill me-1"></i><b>{{totalPrice | currency:"₺" }} Pay</b> 
+        <i class="bi-credit-card-fill me-1"></i><b>
+          {{totalPrice | currency:"₺" }} 
+          Pay</b> 
      </button>
   </div>
 </form>
