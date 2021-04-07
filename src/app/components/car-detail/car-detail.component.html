@@ -64,19 +64,19 @@
           </div>
 
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Brand : {{ carDetails.brandName }}</li>
-            <li class="list-group-item">Color : {{ carDetails.colorName }}</li>
+            <li class="list-group-item">Marka : {{ carDetails.brandName }}</li>
+            <li class="list-group-item">Renk : {{ carDetails.colorName }}</li>
             <li class="list-group-item">
-              Model Year : {{ carDetails.modelYear }}
+              Model : {{ carDetails.modelYear }}
             </li>
             <li class="list-group-item">
-             <strong style="color: #f00000">New Daily Price : {{
+             <strong style="color: #f00000">Yeni Günlük Fiyat : {{
                 carDetails.dailyPrice | vatAdded: 10 | currency: "₺"
                 }}</strong>
             </li>
             <li class="list-group-item">
               <!-- Daily Price : -->
-              <del><strong style="color: #808080">Daily Price : {{
+              <del><strong style="color: #808080">Günlük Fiyat : {{
                   carDetails.dailyPrice | currency: "₺"
                   }}</strong></del>
             </li>
@@ -84,13 +84,17 @@
 
           <div class="card-body">
             <button type="button" class="btn btn-success" (click)="kirala()">
-              Rent
+              Kirala&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-cart3" viewBox="0 0 18 18">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+              </svg>
             </button>
 
             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
-            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+            &#160;&#160;&#160;&#160;
             <button type="button" class="btn btn-primary" routerLink="/cars" style="background: darkblue">
-              Back
+              Geri&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-backspace-fill" viewBox="0 0 18 20">
+                <path d="M15.683 3a2 2 0 0 0-2-2h-7.08a2 2 0 0 0-1.519.698L.241 7.35a1 1 0 0 0 0 1.302l4.843 5.65A2 2 0 0 0 6.603 15h7.08a2 2 0 0 0 2-2V3zM5.829 5.854a.5.5 0 1 1 .707-.708l2.147 2.147 2.146-2.147a.5.5 0 1 1 .707.708L9.39 8l2.146 2.146a.5.5 0 0 1-.707.708L8.683 8.707l-2.147 2.147a.5.5 0 0 1-.707-.708L7.976 8 5.829 5.854z"/>
+              </svg>
             </button>
           </div>
         </div>

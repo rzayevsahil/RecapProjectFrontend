@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Car } from '../models/car/car';
 import { ListResponseModel } from '../models/listResponseModel';
 import { CarDetail } from '../models/car/carDetail';
+import { ResponseModel } from '../models/responseModel';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +25,11 @@ export class CarService {
     return this.httpClient.get<ListResponseModel<CarDetail>>(newPath);
   }
 
+  getCarDetail(): Observable<ListResponseModel<CarDetail>> {
+    let newPath=this.apiUrl+"cars/getallcardetail";
+    return this.httpClient.get<ListResponseModel<CarDetail>>(newPath);
+  }
+
   getCarsByBrandId(brandId:number):Observable<ListResponseModel<CarDetail>>{
     let newPath=this.apiUrl+"cars/getcarsbybrandid?brandId="+brandId;
     return this.httpClient.get<ListResponseModel<CarDetail>>(newPath)
@@ -37,5 +43,20 @@ export class CarService {
   getCarListBrandIdColorId(brandId:number, colorId:number):Observable<ListResponseModel<CarDetail>>{
     let newPath=this.apiUrl+"cars/carlistbrandidcolorid?brandId="+brandId+'&colorId='+colorId;
     return this.httpClient.get<ListResponseModel<CarDetail>>(newPath);
+  }
+
+  add(car:Car):Observable<ResponseModel>{
+    let newPath=this.apiUrl+"cars/add";
+    return this.httpClient.post<ResponseModel>(newPath,car);
+  }
+
+  update(car:Car):Observable<ResponseModel>{
+    let newPath=this.apiUrl+"cars/update";
+    return this.httpClient.post<ResponseModel>(newPath,car);
+  }
+
+  delete(car:Car):Observable<ResponseModel>{
+    let newPath=this.apiUrl+"cars/delete";
+    return this.httpClient.post<ResponseModel>(newPath,car);
   }
 }

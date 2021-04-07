@@ -1,0 +1,72 @@
+<div class="content">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title" style="text-align:left">Araba Ekle</h5>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="carAddForm">
+            <div class="mb-3">
+              <label for="brandId" style="text-align:left">Marka seç</label>
+              <div class="col-sm-12">
+                <select class="form-control" formControlName="brandId">
+                  <option *ngFor="let brand of brands" placeholder="Marka" [ngValue]="brand.brandId">{{brand.brandName}}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-3">
+                <label for="colorId" style="text-align:left">Renk seç</label>
+                <div class="col-sm-12">
+                  <select class="form-control" formControlName="colorId">
+                    <option *ngFor="let color of colors" placeholder="Renk" [ngValue]="color.colorId">{{color.colorName}}
+                    </option>
+                  </select>
+                </div>
+            </div>
+            <div class="mb-3">
+              <label for="modelYear">Model yılı</label>
+              <div class="form-group">
+                <input
+                  type="number"
+                  id="modelYear"
+                  formControlName="modelYear"
+                  class="form-control"
+                  placeholder="Ör:2020"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="dailyPrice">Günlük Fiyat</label>
+              <div class="form-group">
+                <input
+                  type="number"
+                  id="dailyPrice"
+                  formControlName="dailyPrice"
+                  class="form-control"
+                  placeholder="Ör: 100₺"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+                <label for="description">Açıklama</label>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="description"
+                    formControlName="description"
+                    class="form-control"
+                    placeholder="Ör: Güzel araba"
+                  />
+                </div>
+              </div>
+          </form>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-primary float-start" (click)="add()" data-bs-dismiss="modal">Ekle</button>
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Geri</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -94,7 +94,7 @@ export class PaymentComponent implements OnInit {
       this.carId = this.getRentingCar().carId;
     })
   }
-
+  
   // getRentAndReturnDate() {
   //   this.rentDate = this.getRentingCar().rentDate;
   //   this.returnDate = this.getRentingCar().returnDate;
@@ -133,9 +133,12 @@ export class PaymentComponent implements OnInit {
     this.cardExist = await this.isCardExist(verifyCard);
     if (this.cardExist) {
       this.card = await this.getCreditCardByCardNumber(this.cardNumber);
-      if (this.card.moneyInTheCard as number >= (this.totalPrice*0.9)) {
+      if (this.card.moneyInTheCard as number >= (this.totalPrice*0.9)) { 
+        console.log(this.totalPrice)
         this.card.moneyInTheCard = this.card.moneyInTheCard - this.totalPrice*0.9;
-        this.updateCard(verifyCard);
+        console.log(this.card.moneyInTheCard)
+
+        this.updateCard(this.card);
         this.rentalService.addRental(this.getRentingCar()).subscribe();
         
         this.toastrService.success('Arabayı kiraladınız', 'İşlem başarılı');
@@ -157,6 +160,8 @@ export class PaymentComponent implements OnInit {
   }
 
   updateCard(card: Payment) {
-    this.paymentService.updateCard(card);
+    this.paymentService.updateCard(card).subscribe(responseSuccess => {}, responseError => {
+      console.log(responseError);
+    });
   }
 }

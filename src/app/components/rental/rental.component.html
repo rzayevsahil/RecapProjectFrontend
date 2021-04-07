@@ -69,7 +69,7 @@
         <div class="form-floating mb-3">
            <input type="datetime-local" class="form-control" id="rentDate"
                   formControlName="rentDate" placeholder="rentDate">
-           <label for="rentDate">Rental Date</label>
+           <label for="rentDate">Kiralama Tarihi</label>
         </div>
      </div>
      </div>
@@ -78,7 +78,7 @@
         <div class="form-floating">
            <input type="datetime-local" class="form-control" id="returnDate"
                   formControlName="returnDate" placeholder="returnDate">
-           <label for="returnDate">Return Date</label>
+           <label for="returnDate">Teslim Tarihi</label>
         </div>
      </div>
   </div><br>
@@ -86,13 +86,13 @@
     <div class="col-lg-6">
       <div class="form-floating mb-3">
         <select class="form-select" id="customers" formControlName="customerId">
-           <option value="">-- Select Customer --</option>
+           <option value="">-- Müşteri Seçiniz --</option>
 
            <option *ngFor="let customer of customers" [ngValue]="customer.customerId">
               {{ customer.firstName }} {{customer.lastName}}
            </option>
         </select>
-        <label for="customers">Customer</label>
+        <label for="customers">Müşteri</label>
      </div>
      </div>
   </div><br>
@@ -100,8 +100,10 @@
   <div class="col-md-8" style="text-align:center; width: 40px;">
      <button style="background-color: rgba(28, 167, 58, 0.986); width: 470px; height: 40px; align-items:flex-start ;" *ngIf="carId" class="btn btn-sm btn-primary" (click)="checkCarRentable()" [disabled]="addRentCarForm.invalid">
         <i class="bi-credit-card-fill me-1"></i><b>
-          {{totalPrice | currency:"₺" }} 
-          Pay</b> 
+          <!-- {{totalPrice | currency:"₺" }}  -->
+          Ödeme&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-credit-card-fill" viewBox="0 0 18 20">
+            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1H0V4zm0 3v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7H0zm3 2h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1z"/>
+          </svg></b> 
      </button>
   </div>
 </form>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-navi',
@@ -11,5 +12,4 @@ export class NaviComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

@@ -14,12 +14,12 @@
     class="p-3 mb-2 bg-success bg-gradient text-white"
     aria-current="true"
   >
-    Colors
+    Tüm Renkler
   </li>
 
   <div class="mb-3">
-    <label for="filterColor" class="form-label"><strong>Add color name:</strong></label>
-    <input type="text"  [(ngModel)]="filterColor" class="form-control" id="filterColor" placeholder="Search colors">
+    <label for="filterColor" class="form-label"><strong>Renk ismi giriniz:</strong></label>
+    <input type="text"  [(ngModel)]="filterColor" class="form-control" id="filterColor" placeholder="Renk ara">
   </div>
 
    <li *ngFor="let color of colors | filterColor:filterColor"

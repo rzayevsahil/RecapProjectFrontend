@@ -33,14 +33,11 @@ export class RentalComponent implements OnInit {
       private rentalService: RentalService,
       private activatedRoute: ActivatedRoute,
       private customerService: CustomerService,
-      private router: Router,
-      private carservice:CarService
+      private router: Router
    ) { }
 
    ngOnInit(): void {
       this.carId = Number(this.activatedRoute.snapshot.paramMap.get('carId'));
-      console.log(this.rentDate)
-      console.log(this.returnDate)
       this.getCustomerDetails();
       this.createAddRentCarForm();
    }
@@ -48,11 +45,8 @@ export class RentalComponent implements OnInit {
    getCustomerDetails() {
       this.customerService.getCustomerDetails().subscribe(response => {
          this.customers = response.data;
-        this.carservice.getCarDetailByCarId(this.rentalService.getRentingCar().carId)
-        this.totalPrice
       })
    }
-
 
    createAddRentCarForm() {
       this.addRentCarForm = this.formBuilder.group({
@@ -62,7 +56,6 @@ export class RentalComponent implements OnInit {
          returnDate: ['', Validators.required]
       });
    }
-
 
    setRentingCar() {
       if (this.addRentCarForm.invalid) {
@@ -89,7 +82,6 @@ export class RentalComponent implements OnInit {
       return this.router.navigate(['/payment']);
    }
 
-
    checkCarRentable() {
       this.rentalService.getRentalsByCarId(this.carId).subscribe(responseSuccess => {
          if (responseSuccess.data[0] == null) {
@@ -108,13 +100,13 @@ export class RentalComponent implements OnInit {
                'Bu aracı bu tarihler arasında kiralayamazsınız', 'Dikkat'
             );
          }
-         return true;
+         return true;   
       });
    } 
 
    calculatePayment() {
-      var date1 = new Date(this.rental.returnDate.toString());
-      var date2 = new Date(this.rental.rentDate.toString());
+      var date1 = new Date(this.getRentingCar().returnDate.toString());
+      var date2 = new Date(this.getRentingCar().rentDate.toString());
       var difference = date1.getTime() - date2.getTime();
       var rentDays = Math.ceil(difference / (1000 * 3600 * 24));
       this.totalPrice = rentDays * this.carDetail.dailyPrice;

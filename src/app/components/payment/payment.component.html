@@ -8,7 +8,7 @@
                             <h3 id="heading1">Payment Summary</h3><br>
                             <div class="row">
                                 <div class="col-lg-5 col-4 mt-3 line">
-                                    <h2 id="writestyle" class="bill-head">Brand</h2>
+                                    <h2 id="writestyle" class="bill-head">Marka</h2>
                                 </div>
                                 <!-- <div class="col-lg-4 col-5 mt-4"> -->
                                 <div class="col-lg-7 col-8 mt-3">
@@ -17,7 +17,7 @@
                             </div><br>
                             <div class="row">
                                 <div class="col-lg-5 col-4 mt-3 line">
-                                    <h2 id="writestyle" class="bill-head">Color</h2>
+                                    <h2 id="writestyle" class="bill-head">Renk</h2>
                                 </div>
                                 <div class="col-lg-7 col-8 mt-3">
                                     <h2 id="writestyle2" class="bill-head px-xl-2 px-lg-4">{{ carDetail.colorName }}</h2>
@@ -25,7 +25,7 @@
                             </div><br>
                             <div class="row">
                                 <div class="col-lg-5 col-4 mt-3 line">
-                                    <h2 id="writestyle" class="bill-head">Model Year</h2>
+                                    <h2 id="writestyle" class="bill-head">Modeli</h2>
                                 </div>
                                 <div class="col-lg-7 col-8 mt-3">
                                     <h2 id="writestyle2" class="bill-head px-xl-2">{{ carDetail.modelYear }}</h2>
@@ -33,7 +33,7 @@
                             </div><br>
                             <div class="row">
                                 <div class="col-lg-5 col-4 mt-3 line">
-                                    <h2  id="writestyle" class="bill-head">Description</h2> 
+                                    <h2  id="writestyle" class="bill-head">Açıklama</h2> 
                                 </div>
                                 <div class="col-lg-7 col-8 mt-3">
                                     <h2 id="writestyle2" class="bill-head px-xl-2">{{ carDetail.description }}</h2>
@@ -41,7 +41,7 @@
                             </div><br>
                             <div class="row">
                                 <div class="col-lg-5 col-4 mt-3 line">
-                                    <h2 id="writestyle" class="bill-head">Rental Date</h2> 
+                                    <h2 id="writestyle" class="bill-head">Kiralama Tarihi</h2> 
                                 </div>
                                 <div class="col-lg-7 col-8 mt-3">
                                     <h2 id="writestyle2" class="bill-head px-xl-2">{{getRentingCar().rentDate}}</h2>
@@ -49,7 +49,7 @@
                             </div><br>
                             <div class="row">
                                 <div class="col-lg-5 col-4 mt-3 line">
-                                    <h2 id="writestyle" class="bill-head">Return Date</h2> 
+                                    <h2 id="writestyle" class="bill-head">Teslim Tarihi</h2> 
                                 </div>
                                 <div class="col-lg-7 col-8 mt-3">
                                     <h2 id="writestyle2" class="bill-head px-xl-2">{{getRentingCar().returnDate}}</h2>
@@ -57,11 +57,11 @@
                             </div>
                             <div class="row">
                                 <div id="blabla" class="col-md-12 red-bg">
-                                    <p class="bill-date" id="total-label">Total Price</p>
+                                    <p class="bill-date" id="total-label">Toplam fiyat</p>
                                     <h2 class="bill-head" id="total">
                                         {{totalPrice | vatAdded: 10 | currency: "₺"}}
                                     </h2> 
-                                    <small class="bill-date" id="total-label2">Price includes all taxes</small>
+                                    <!-- <small class="bill-date" id="total-label2">Price includes all taxes</small> -->
                                 </div>
                             </div>
                         </div>
@@ -73,24 +73,23 @@
                                 <div class="radio-group">
                                     <div class='radio' data-value="credit"><img src="https://i.imgur.com/28akQFX.jpg" width="190px" height="60px"></div>
                                     <div class='radio' data-value="paypal"><img src="https://i.imgur.com/5QFsx7K.jpg" width="190px" height="60px"></div> <br>
-                                </div> <label class="pay">Name on Card</label>
-                                <input [(ngModel)]="cardNameSurname" type="text" name="holdername" placeholder="John Smith">
+                                </div> <label class="pay">Kart Üzerindeki İsim</label>
+                                <input [(ngModel)]="cardNameSurname" type="text" name="holdername" placeholder="İsim Soyisim">
                                 <div class="row">
-                                    <div class="col-8 col-md-12"> <label class="pay">Card Number</label> 
+                                    <div class="col-8 col-md-12"> <label class="pay">Kart Numarası</label> 
                                         <input [(ngModel)]="cardNumber" type="text" name="cardno" id="cr_no" placeholder="0000000000000000" minlength="16" maxlength="16"> </div>
                                     
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-3"> <label class="pay">Expiration Date</label> 
+                                    <div class="col-md-3"> <label class="pay">Son Kullanma Tarihi</label> 
                                     <div> 
-                                        <input [(ngModel)]="cardExpiryDate" type="text" name="exp" id="exp" placeholder="MM/YY" minlength="5" maxlength="5"> </div></div>&nbsp;&nbsp;
-                                    <div class="col-md-1"> <label class="pay">&nbsp;CVV</label>
+                                        <input [(ngModel)]="cardExpiryDate" type="text" name="exp" id="exp" placeholder="AA/YY" minlength="5" maxlength="5"> </div></div>&nbsp;&nbsp;
+                                    <div class="col-md-1"> <label class="pay">&nbsp;Güvenlik Kodu</label>
                                         <div> 
                                         <input id="cvv"  [(ngModel)]="cardCvv" type="password" name="cvcpwd" placeholder="&#9679;&#9679;&#9679;" class="placeicon" minlength="3" maxlength="3"> </div></div>
                                 </div><br>
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <button (click)="rentACar()" class="btn btn-success" style="background-color: crimson;height:40px;"><b>MAKE A PAYMENT</b></button>  </div>
+                                        <button (click)="rentACar()" class="btn btn-success" style="background-color: crimson;height:40px;"><b>ÖDEMEYİ TAMAMLA</b></button>  
                                         <!-- <input type="submit" value="MAKE A PAYMENT &nbsp; " class="btn btn-info placeicon"> -->
                                     <!-- <button type="button" class="btn btn-primary" routerLink="/cars/cardetail/{{carId}}" style="background: darkblue;">Back</button> -->
                                 </div>

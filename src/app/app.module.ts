@@ -21,6 +21,15 @@ import { FilterCarPipe } from './pipes/filter-car.pipe';
 import { PaymentComponent } from './components/payment/payment.component';
 
 import {ToastrModule} from "ngx-toastr";
+import { CarAddComponent } from './components/car/car-add/car-add.component';
+import { CarUpdateComponent } from './components/car/car-update/car-update.component';
+import { ColorAddComponent } from './components/color/color-add/color-add.component';
+import { ColorUpdateComponent } from './components/color/color-update/color-update.component';
+import { BrandAddComponent } from './components/brand/brand-add/brand-add.component';
+import { BrandUpdateComponent } from './components/brand/brand-update/brand-update.component';
+import { BrandListComponent } from './components/brand/brand-list/brand-list.component';
+import { ColorListComponent } from './components/color/color-list/color-list.component';
+import { CarListComponent } from './components/car/car-list/car-list.component';
 
 
 @NgModule({
@@ -38,6 +47,15 @@ import {ToastrModule} from "ngx-toastr";
     FilterColorPipe,
     FilterCarPipe,
     PaymentComponent,
+    CarAddComponent,
+    CarUpdateComponent,
+    ColorAddComponent,
+    ColorUpdateComponent,
+    BrandAddComponent,
+    BrandUpdateComponent,
+    BrandListComponent,
+    ColorListComponent,
+    CarListComponent
   ],
   imports: [
     BrowserModule,

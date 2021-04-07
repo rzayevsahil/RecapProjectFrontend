@@ -16,11 +16,11 @@
     routerLink="/cars"
     class="p-3 mb-2 bg-danger bg-gradient text-white"
     aria-current="true"
-  >All Brands</li> 
+  >Tüm Markalar</li> 
 
 <div class="mb-3">
-  <label for="filterBrand" class="form-label"><strong>Add brand name:</strong></label>
-  <input type="text"  [(ngModel)]="filterBrand" class="form-control" id="filterBrand" placeholder="Search brands">
+  <label for="filterBrand" class="form-label"><strong>Marka ismi giriniz: </strong></label>
+  <input type="text" [(ngModel)]="filterBrand" class="form-control" id="filterBrand" placeholder="Marka ara">
 </div>
 
   <li *ngFor="let brand of brands | filterBrand:filterBrand" (click)="setCurrentBrand(brand)" 
