@@ -1,49 +1,110 @@
 # CarRentalFrontend
 
-## Araba Listesi:
+## Ana sayfa - Register ve Login butonları eklendi:
 
-![8](https://user-images.githubusercontent.com/58303745/113471483-a8d7e780-946d-11eb-98f8-ed91eb923c38.jpg)
+![1(ana sayfa register ve login)](https://user-images.githubusercontent.com/58303745/114320726-6034c400-9b28-11eb-8a2d-fc5a5262ea39.jpg)
 
-## Kiralanmış aracı kiralayamazsın:
+## Login ve Register:
 
-![01 04(3)](https://user-images.githubusercontent.com/58303745/113212010-4624f700-9287-11eb-8f07-527b271e42f1.jpg)
+![3 1(register)](https://user-images.githubusercontent.com/58303745/114320779-a853e680-9b28-11eb-95de-f5bcd9908922.jpg)
 
-## Filter butonu:
+![2(login)](https://user-images.githubusercontent.com/58303745/114320782-a9851380-9b28-11eb-8d12-26caacff4ea9.jpg)
 
-![4](https://user-images.githubusercontent.com/58303745/113471245-4af6d000-946c-11eb-84b9-a62c0aedbcce.jpg)
 
-![5](https://user-images.githubusercontent.com/58303745/113471255-5b0eaf80-946c-11eb-8ad4-5d84234c260c.jpg)
+## Kullanıcı kayıt olunca direk siteye giriyor ve default olarak sistem tarafından findeks puanı ekleniyor ve siteye giren kullanıcı mı yönetici mi onu da yazıyor
 
-![3](https://user-images.githubusercontent.com/58303745/113471259-5cd87300-946c-11eb-9431-b3acb45f07c9.jpg)
+![4(kullanıcı kayıt olunca direk siteye giriyor ve default olarak sistem tarafından findeks puanı atıyor)](https://user-images.githubusercontent.com/58303745/114320815-d46f6780-9b28-11eb-8d24-4e094aaaa38f.jpg)
 
-## Detail:
+## Filter
 
-![1](https://user-images.githubusercontent.com/58303745/113471369-e1c38c80-946c-11eb-9cb7-40c6b01add42.jpg)
+![5(filtreleme)](https://user-images.githubusercontent.com/58303745/114320858-11d3f500-9b29-11eb-844b-e8839635cc69.jpg)
 
-# Pay butonuna tıkladığımızda:
-## Bu günkü tarihden önceki tarih seçilmişse:
+## Findeks 
 
-![2](https://user-images.githubusercontent.com/58303745/113471456-6ca48700-946d-11eb-9814-560f6dd172ca.jpg)
+![6(findeks puanı yetersiz)](https://user-images.githubusercontent.com/58303745/114320888-329c4a80-9b29-11eb-93ab-ad24034241ca.jpg)
 
-## Dönüş tarihi kiralama tarihinden önceyse:
+![7(findeks yeterliyse kiralama butonu oluyor)](https://user-images.githubusercontent.com/58303745/114320890-34660e00-9b29-11eb-894d-f1579e63351a.jpg)
 
-![6](https://user-images.githubusercontent.com/58303745/113471458-6e6e4a80-946d-11eb-9db8-0d9e741b547d.jpg)
+## Kiralama 
 
-## Ödeme sayfasına yönlendirilme:
+![image](https://user-images.githubusercontent.com/58303745/114320922-624b5280-9b29-11eb-9636-85d6a58b8975.png)
 
-![7](https://user-images.githubusercontent.com/58303745/113471536-197f0400-946e-11eb-8b06-add00b7a8684.jpg)
+## Ödeme sayfası
 
-## Ödeme sayfasında yanlış bilgi girersek:
+![9](https://user-images.githubusercontent.com/58303745/114320938-7d1dc700-9b29-11eb-96d2-1346189f61bd.jpg)
 
-![9](https://user-images.githubusercontent.com/58303745/113471571-4e8b5680-946e-11eb-9474-bc7db235b614.jpg)
 
-## Müşterinin kartında yeterli para yoksa:
+![11(kullanıcı güncelle)](https://user-images.githubusercontent.com/58303745/114320952-99b9ff00-9b29-11eb-95c4-67b0ca9cdf22.jpg)
 
-![11](https://user-images.githubusercontent.com/58303745/113471575-50edb080-946e-11eb-9b85-8dea1fb3ce51.jpg)
+![12(şifreler eşleşmiyor)](https://user-images.githubusercontent.com/58303745/114320954-9aeb2c00-9b29-11eb-8b90-d0494cb4d40c.jpg)
 
-## Araba başarıyla kiralandı:
+![14(çıkış yapıldı mesajı)](https://user-images.githubusercontent.com/58303745/114320957-9de61c80-9b29-11eb-864a-5d75555484d1.jpg)
 
-![10](https://user-images.githubusercontent.com/58303745/113471610-8d211100-946e-11eb-8a42-8237d23cd3e7.jpg)
+![15(giriş yaptığımızda parola yanlış olursa)](https://user-images.githubusercontent.com/58303745/114320959-9f174980-9b29-11eb-8570-8c1243cbe57c.jpg)
+
+![16(başarıyla giriş yapıldı mesajı)](https://user-images.githubusercontent.com/58303745/114320963-a0e10d00-9b29-11eb-92fa-33232b6e8f75.jpg)
+
+![17(Kişinin kullanıcı yoksa yönetici olduğunu sağ üstde belirtiyor ve admin diye işlmeler butonu da geliyor)](https://user-images.githubusercontent.com/58303745/114320967-a2123a00-9b29-11eb-8a6f-92074c9afc07.jpg)
+
+![18(araba crud)](https://user-images.githubusercontent.com/58303745/114320971-a4749400-9b29-11eb-867c-358884923632.jpg)
+
+![19(marka crud)](https://user-images.githubusercontent.com/58303745/114320987-b48c7380-9b29-11eb-9b39-6c54a1de3976.jpg)
+
+![20(renk crud)](https://user-images.githubusercontent.com/58303745/114321047-e4d41200-9b29-11eb-8f6d-5bf81288ab6b.jpg)
+
+![21(araba ekleme marka brand select)](https://user-images.githubusercontent.com/58303745/114321049-e56ca880-9b29-11eb-8ec3-5392b8ac929a.jpg)
+
+![22](https://user-images.githubusercontent.com/58303745/114321052-e7cf0280-9b29-11eb-9679-cadca6607b98.jpg)
+
+![23](https://user-images.githubusercontent.com/58303745/114321056-e9002f80-9b29-11eb-971b-2200d009daca.jpg)
+
+![24 1](https://user-images.githubusercontent.com/58303745/114321021-d4bc3280-9b29-11eb-9a42-dbed72ae2d8b.jpg)
+
+![24](https://user-images.githubusercontent.com/58303745/114321023-d5ed5f80-9b29-11eb-9020-fd03269a71e4.jpg)
+![25](https://user-images.githubusercontent.com/58303745/114321024-d71e8c80-9b29-11eb-8865-6b2dfba67c37.jpg)
+
+![26](https://user-images.githubusercontent.com/58303745/114321026-d84fb980-9b29-11eb-99c3-fb31ee434243.jpg)
+
+![27](https://user-images.githubusercontent.com/58303745/114321027-d980e680-9b29-11eb-85e5-5fcabdf6de35.jpg)
+
+![28](https://user-images.githubusercontent.com/58303745/114321029-da197d00-9b29-11eb-958c-269432b29eb9.jpg)
+
+![29](https://user-images.githubusercontent.com/58303745/114321031-db4aaa00-9b29-11eb-9441-948f8e0a6f53.jpg)
+
+![30](https://user-images.githubusercontent.com/58303745/114321032-db4aaa00-9b29-11eb-93b9-2aeb440168dd.jpg)
+
+![31](https://user-images.githubusercontent.com/58303745/114321034-dc7bd700-9b29-11eb-977b-08808bd15273.jpg)
+
+![32](https://user-images.githubusercontent.com/58303745/114321035-dd146d80-9b29-11eb-86bc-383084e7431c.jpg)
+
+![33](https://user-images.githubusercontent.com/58303745/114321036-ddad0400-9b29-11eb-8360-82b1ba88a837.jpg)
+
+![34](https://user-images.githubusercontent.com/58303745/114321037-de459a80-9b29-11eb-85dc-48375ccaf592.jpg)
+
+![35](https://user-images.githubusercontent.com/58303745/114321038-df76c780-9b29-11eb-8aa6-bdf27d35ca9a.jpg)
+
+![36](https://user-images.githubusercontent.com/58303745/114321039-e00f5e00-9b29-11eb-8117-77a6e61231da.jpg)
+
+![37](https://user-images.githubusercontent.com/58303745/114321041-e1408b00-9b29-11eb-8723-72a8e5bdf77d.jpg)
+
+![38](https://user-images.githubusercontent.com/58303745/114321044-e1d92180-9b29-11eb-97ff-1ae6d11cc00f.jpg)
+
+![39](https://user-images.githubusercontent.com/58303745/114321045-e30a4e80-9b29-11eb-83fc-74e1951704fb.jpg)
+
+![40](https://user-images.githubusercontent.com/58303745/114321046-e3a2e500-9b29-11eb-986c-3148221a070c.jpg)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
