@@ -1,10 +1,10 @@
-<div class="content">
+<div class="content" style="width: 400px;">
     <div class="col-md-12">
-      <div class="card">
+      <div class="card" style="background-image: url(https://images.unsplash.com/photo-1578364249730-0c4ee16426fa?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8YmxhY2slMjBiYWNrZ3JvdW5kJTIwY2FyfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60);">
         <div class="card-header">
-          <h5 class="title" style="text-align:left">Araba Ekle</h5>
+          <h5 class="title" style="text-align:left;color: white;">Araba Ekle</h5>
         </div>
-        <div class="card-body">
+        <div class="card-body" style="text-align:left;color: white;">
           <form [formGroup]="carAddForm">
             <div class="mb-3">
               <label for="brandId" style="text-align:left">Marka seç</label>
@@ -60,11 +60,23 @@
                   />
                 </div>
               </div>
+              <div class="mb-3">
+                <label for="findexPoint">Findeks puanı</label>
+                <div class="form-group">
+                  <input
+                    type="int"
+                    id="findexPoint"
+                    formControlName="findexPoint"
+                    class="form-control"
+                    placeholder="Findeks puanı"
+                  />
+                </div>
+              </div>
           </form>
         </div>
-        <div class="card-footer">
-            <button class="btn btn-primary float-start" (click)="add()" data-bs-dismiss="modal">Ekle</button>
-            <button class="btn btn-secondary" data-bs-dismiss="modal">Geri</button>
+        <div class="card-footer pb-4">
+            <button class="btn btn-primary float-start" (click)="add()" data-bs-dismiss="modal" style="float: left;">Ekle <i class="fas fa-plus"></i></button>
+            <button class="btn btn-secondary" data-bs-dismiss="modal" style="float: right;">Geri <i class="fas fa-arrow-circle-left"></i></button>
         </div>
       </div>
     </div>

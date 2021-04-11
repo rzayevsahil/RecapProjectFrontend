@@ -14,7 +14,7 @@ export class RentalService {
   rentingCar: Rental;
   apiUrl = "https://localhost:44358/api/rentals/";
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) { this.getRentals()}
 
   getRentals(): Observable<ListResponseModel<RentalDetail>> {
     let newPath = this.apiUrl + "getrentaldetails";

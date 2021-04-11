@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Car } from 'src/app/models/car/car';
 import { CarDetail } from 'src/app/models/car/carDetail';
 import { Customer } from 'src/app/models/customer/customer';
 import { Rental } from 'src/app/models/rental/rental';
 import { CarService } from 'src/app/services/car.service';
 import { CustomerService } from 'src/app/services/customer.service';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { RentalService } from 'src/app/services/rental.service';
 
 @Component({
@@ -23,6 +25,7 @@ export class RentalComponent implements OnInit {
    currentDate: Date = new Date()
    totalPrice:number = 0;
    carDetail:CarDetail
+   car:CarDetail
 
    rentDate:Date;
    returnDate:Date;
@@ -33,11 +36,14 @@ export class RentalComponent implements OnInit {
       private rentalService: RentalService,
       private activatedRoute: ActivatedRoute,
       private customerService: CustomerService,
-      private router: Router
+      private router: Router,
+      private localStorageService:LocalStorageService,
+      private carService: CarService
    ) { }
 
    ngOnInit(): void {
       this.carId = Number(this.activatedRoute.snapshot.paramMap.get('carId'));
+      this.getCarById();
       this.getCustomerDetails();
       this.createAddRentCarForm();
    }
@@ -48,10 +54,16 @@ export class RentalComponent implements OnInit {
       })
    }
 
+   getCarById(){
+      this.carService.getCarDetailByCarId(this.carId).subscribe(response => {
+         this.car = response.data[0]
+      })
+   }
+
    createAddRentCarForm() {
       this.addRentCarForm = this.formBuilder.group({
          carId: [this.carId, Validators.required],
-         customerId: ['', Validators.required],//******** */
+         customerId: [this.localStorageService.getCurrentCustomer().customerId, Validators.required],//******** */
          rentDate: ['', Validators.required],
          returnDate: ['', Validators.required]
       });
@@ -77,10 +89,16 @@ export class RentalComponent implements OnInit {
          );
          return false;
       }
-      this.rentalService.setRentingCar(this.rental);
-      this.toastrService.success('Ödeme sayfasına yönlendiriliyorsunuz');
-      return this.router.navigate(['/payment']);
+      if(this.localStorageService.getCurrentCustomer().findexPoint > this.car.findexPoint){
+         this.rentalService.setRentingCar(this.rental);
+         this.toastrService.success('Ödeme sayfasına yönlendiriliyorsunuz');
+         return this.router.navigate(['/payment']);
+      }else{
+         return this.toastrService.error("Findeks puanınız yetmiyor","Dikkat")
+      }
+      
    }
+   
 
    checkCarRentable() {
       this.rentalService.getRentalsByCarId(this.carId).subscribe(responseSuccess => {

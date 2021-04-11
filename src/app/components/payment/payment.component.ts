@@ -6,8 +6,10 @@ import { CarDetail } from 'src/app/models/car/carDetail';
 import { Customer } from 'src/app/models/customer/customer';
 import { Payment } from 'src/app/models/payment/payment';
 import { Rental } from 'src/app/models/rental/rental';
+import { AuthService } from 'src/app/services/auth.service';
 import { CarService } from 'src/app/services/car.service';
 import { CustomerService } from 'src/app/services/customer.service';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { PaymentService } from 'src/app/services/payment.service';
 import { RentalService } from 'src/app/services/rental.service';
 
@@ -28,9 +30,8 @@ export class PaymentComponent implements OnInit {
   cardNumber: string;
   cardCvv: string;
   cardExpiryDate: any;
-  moneyInTheCard: number;
   card: Payment;
-  //cardAddForm: FormGroup;
+
   customerId: number;
 
   // rentDate: Date;
@@ -43,6 +44,9 @@ export class PaymentComponent implements OnInit {
   getCustomerId: number;
   customer: Customer;
 
+  save:boolean=true;
+  verifyCard:Payment;
+
   constructor(
     private paymentService: PaymentService,
     private activatedRoute: ActivatedRoute,
@@ -52,6 +56,8 @@ export class PaymentComponent implements OnInit {
     private carService: CarService,
     private formBuilder: FormBuilder,
     private customerService: CustomerService,
+    private localStorageService:LocalStorageService,
+    private authService:AuthService
 
   ) { }
 
@@ -66,13 +72,7 @@ export class PaymentComponent implements OnInit {
     //   }
     // })
     this.getCarDetailByCarId();
-    // this.getRentAndReturnDate();
-
-    // if(!this.rentalService.getRentingCar()){
-    //   this.toastrService.error("Hatalı işlem", "Dikkat")
-    //   this.router.navigate(['']);
-    //   return;
-    // }
+    
   }
 
   getCustomerDetailById(customerId: number) {
@@ -94,11 +94,6 @@ export class PaymentComponent implements OnInit {
       this.carId = this.getRentingCar().carId;
     })
   }
-  
-  // getRentAndReturnDate() {
-  //   this.rentDate = this.getRentingCar().rentDate;
-  //   this.returnDate = this.getRentingCar().returnDate;
-  // }
 
   getRentingCar(): Rental {
     return this.rentalService.getRentingCar();
@@ -121,47 +116,41 @@ export class PaymentComponent implements OnInit {
   }
 
   async rentACar() {
-    let verifyCard: Payment = {
+    this.verifyCard= {
       cardNameSurname: this.cardNameSurname,
       cardNumber: this.cardNumber,
       cardExpiryDate: this.cardExpiryDate,
       cardCvv: this.cardCvv,
-      customerId: this.customerId,
-      moneyInTheCard: this.moneyInTheCard
+      customerId: this.localStorageService.getCurrentCustomer().customerId
     }
 
-    this.cardExist = await this.isCardExist(verifyCard);
-    if (this.cardExist) {
-      this.card = await this.getCreditCardByCardNumber(this.cardNumber);
-      if (this.card.moneyInTheCard as number >= (this.totalPrice*0.9)) { 
-        console.log(this.totalPrice)
-        this.card.moneyInTheCard = this.card.moneyInTheCard - this.totalPrice*0.9;
-        console.log(this.card.moneyInTheCard)
-
-        this.updateCard(this.card);
-        this.rentalService.addRental(this.getRentingCar()).subscribe();
-        
-        this.toastrService.success('Arabayı kiraladınız', 'İşlem başarılı');
-        this.router.navigate(['/cars']);
-      } else {
-        this.toastrService.error('Kartınızda yeterli bakiye yoktur', 'Hata');
+    
+    if (this.save) {
+      this.paymentService.addPayment(this.verifyCard).subscribe();
       }
-    } else {
-      this.toastrService.error('Yanlış bilgi! Bankanız bilgilerinizi onaylamadı', 'Hata');
-    }
+      this.rentalService.addRental(this.getRentingCar()).subscribe(responseSuccess=>{
+        this.toastrService.success(responseSuccess.message,"Başarılı")
+        this.router.navigateByUrl("/cars")
+      },responseError=>{
+        this.toastrService.error(responseError.error.message,"Hata")
+      });
   }
 
-  async isCardExist(card: Payment) {
-    return (await this.paymentService.verifyCard(card).toPromise()).success;
-  }
+
 
   async getCreditCardByCardNumber(cardNumber: string) {
     return (await this.paymentService.getByCardNumber(cardNumber).toPromise()).data[0];
   }
 
-  updateCard(card: Payment) {
-    this.paymentService.updateCard(card).subscribe(responseSuccess => {}, responseError => {
-      console.log(responseError);
-    });
-  }
+  setSelectedCard(cardOnEventing: Payment) {
+    console.log(cardOnEventing)
+    //this.card = Object.assign(cardOnEventing, { save: false });
+    this.cardNameSurname= cardOnEventing.cardNameSurname;
+      this.cardNumber= cardOnEventing.cardNumber;
+      this.cardExpiryDate= cardOnEventing.cardExpiryDate;
+      this.cardCvv= cardOnEventing.cardCvv;
+      this.customerId= cardOnEventing.customerId;
+      this.save=false;
+ }
+
 }

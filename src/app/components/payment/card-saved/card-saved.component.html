@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="card-header fw-bold">
+       <i class="bi-credit-card-2-front me-1"></i> Kayıtlı kartlarım
+    </div>
+    <div class="card-body p-0">
+       <table class="table table-hover mb-0">
+          <tbody>
+          <tr class="text-center" *ngFor="let card of cards" (click)="selectCard(card.paymentId)">
+             <th><i class="bi-arrow-right"></i></th>
+             <td style="width: 1px">{{ card.cardNumber }}</td>
+             <td style="width: 1px">|</td>
+             <td>{{ card.cardExpiryDate }}</td>
+             <td style="width: 1px">|</td>
+             <td>{{ card.cardNameSurname }}</td>
+          </tr>
+          </tbody>
+       </table>       
+    </div>
+ </div>

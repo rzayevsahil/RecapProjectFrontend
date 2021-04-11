@@ -10,6 +10,7 @@ import { BrandService } from 'src/app/services/brand.service';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
 import { ColorService } from 'src/app/services/color.service';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-car',
@@ -36,7 +37,8 @@ export class CarComponent implements OnInit {
     private toastrService:ToastrService,
     private colorService: ColorService,
     private brandService: BrandService,
-    private router: Router
+    private router: Router,
+    private localStorageService:LocalStorageService
   ) {}
 
   ngOnInit(): void {
@@ -134,11 +136,6 @@ export class CarComponent implements OnInit {
   }
 
 
-  addToCart(car:Car){
-    this.toastrService.show("Sepete")
-  }
-
-
   getAllBrands() {
     this.brandService.getBrands().subscribe((response) => {
       this.brands = response.data;
@@ -159,9 +156,7 @@ export class CarComponent implements OnInit {
       this.router.navigate(['/cars/color/' + this.colorId ])
     }
   }
+
+
   
 }
-
-
-
-// routerLink="/cars/{{brandId}}/{{colorId}}"

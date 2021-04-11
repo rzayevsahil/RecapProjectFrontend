@@ -1,0 +1,56 @@
+<body class="text-center" style="margin-left: 35%;height: 740px;width: 400px;background-repeat: no-repeat;background-size: 400px 750px;
+background-image: url(https://images.unsplash.com/photo-1485758152456-1e91810337e0?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTg0fHxibGFjayUyMGJhY2tncm91bmQlMjBjYXJ8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60);">
+
+    <main class="form-signin" style="padding: 10%;">
+        <form [formGroup]="registerForm">
+            <!-- <img class="mb-4" src="{{imageUrl}}{{defaultImage}}" alt="" width="90" height="70"> -->
+            <h1 class="h3 mb-3 fw-normal" style="color: honeydew;">sign up</h1>
+
+            <div class="form-floating mb-3">
+                <input formControlName="firstName" type="text" class="form-control" id="floatingInput"
+                    placeholder="Name">
+                <label for="floatingInput">Name</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input formControlName="lastName" type="text" class="form-control" id="floatingInput"
+                    placeholder="Surname">
+                <label for="floatingInput">Surname</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input formControlName="companyName" type="text" class="form-control" id="floatingInput"
+                    placeholder="Company Name">
+                <label for="floatingInput">Company Name</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input formControlName="email" type="email" class="form-control" id="floatingInput"
+                    placeholder="name@example.com">
+                <label for="floatingInput">Email</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input formControlName="password" type="password" class="form-control" id="floatingPassword"
+                    placeholder="password">
+                <label for="floatingPassword">Password</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input formControlName="confirmPassword" type="password" class="form-control" id="floatingPassword"
+                    placeholder="Şifrenizi doğrulayın">
+                <label for="floatingPassword">Confirm Password</label>
+            </div><br>
+
+            <button class="w-100 btn btn-lg btn-primary" type="submit" (click)="register()">Sign up</button><br><br>
+            <div class="col-md-12">
+                <p class="font-small white-text d-flex justify-content-center" style="color: white;">Have an account?&nbsp;<a routerLink="/login"  class="green-text ml-1 font-weight-bold" style="color: turquoise;">
+                    Sign in</a></p>
+              </div>
+            <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+        </form>
+    </main>
+
+
+
+</body>

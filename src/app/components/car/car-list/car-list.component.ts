@@ -32,13 +32,16 @@ export class CarListComponent implements OnInit {
     this.carService.delete(car).subscribe(response => {
       this.toastrService.success("Başarıyla silindi", "Başarılı")
       this.getCars()
-      this.router.navigate(["carOperations"])
+      this.router.navigate(["/carOperations"])
     }, responseError => {
       if (responseError.error.Errors.length > 0) {
         for (let i = 0; i < responseError.error.Errors.length; i++) {
           this.toastrService.error(responseError.error.Errors[i].ErrorMessage, "Doğrulama hatası")
         }
       }
+
+      console.log(responseError);
+      
     })
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup,FormBuilder,FormControl,Validators} from "@angular/forms"
+import { FormGroup, FormBuilder, FormControl, Validators } from "@angular/forms"
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/brand/brand';
@@ -16,71 +16,76 @@ import { ColorService } from 'src/app/services/color.service';
 })
 export class CarUpdateComponent implements OnInit {
 
-  carUpdateForm:FormGroup;
-  colors:Color[]=[]
-  brands:Brand[]=[]
-  carId:number
+  carUpdateForm: FormGroup;
+  colors: Color[] = []
+  brands: Brand[] = []
+  car: Car
+
   constructor(
-    private formBuilder:FormBuilder,
-    private carService:CarService,
-    private toastrService:ToastrService,
-    private router:Router,
-    private colorService:ColorService,
-    private brandService:BrandService,
-    private activatedRoute:ActivatedRoute
-    ) { }
+    private formBuilder: FormBuilder,
+    private carService: CarService,
+    private toastrService: ToastrService,
+    private router: Router,
+    private colorService: ColorService,
+    private brandService: BrandService,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params)=>{
-      if(params["carId"]){
-        this.carId=params["carId"]
-      }
-    })
-    
-    this.getBrands()
-    this.getColors()
-    this.createCarUpdateForm()
-  }
-
-  getBrands(){
-    this.brandService.getBrands().subscribe(response=>{
-      this.brands=response.data;
+    this.activatedRoute.params.subscribe((param) => {
+      this.getBrands()
+      this.getColors()
+      this.getCarById(param.carId)
     })
   }
 
-  getColors(){
-    this.colorService.getColors().subscribe(response=>{
-      this.colors=response.data;
+  getCarById(carId: number){
+    this.carService.getCarDetailByCarId(carId).subscribe(responseSucces => {
+      this.car = responseSucces.data[0]
+      this.createCarUpdateForm()
     })
   }
 
-  createCarUpdateForm(){
+  getBrands() {
+    this.brandService.getBrands().subscribe(response => {
+      this.brands = response.data;
+    })
+  }
+
+  getColors() {
+    this.colorService.getColors().subscribe(response => {
+      this.colors = response.data;
+    })
+  }
+
+  createCarUpdateForm() {
     this.carUpdateForm = this.formBuilder.group({
-    colorId:["",Validators.required],
-    brandId:["",Validators.required],
-    modelYear:["",Validators.required],
-    dailyPrice:["",Validators.required],
-    description:["",Validators.required]
+      colorId: [this.car.colorId, Validators.required],
+      brandId: [this.car.brandId, Validators.required],
+      modelYear: [this.car.modelYear, Validators.required],
+      dailyPrice: [this.car.dailyPrice, Validators.required],
+      description: [this.car.description, Validators.required],
+      findexPoint: [this.car.findexPoint, Validators.required]
     })
-    }
+  }
 
-  update(){
-    if(this.carUpdateForm.valid){
-      let carModel:Car=Object.assign({id:this.carId},this.carUpdateForm.value)
-      
-      this.carService.update(carModel).subscribe(response=>{ 
+  update() {
+    if (this.carUpdateForm.valid) {
+      let carModel: Car = Object.assign({ id: this.car.id }, this.carUpdateForm.value)
+
+      this.carService.update(carModel).subscribe(response => {
         this.carService.getCars();
-        this.toastrService.success(response.message,"Başarılı") 
-        this.router.navigate(["carOperations"]).then(r=>window.location.reload())        
-      },responseError=>{
-        if (responseError.error.Errors.length>0){
+        this.toastrService.success(response.message, "Başarılı")
+        this.router.navigate(["carOperations"]).then(r => window.location.reload())
+      }, responseError => {
+        if (responseError.error.Errors.length > 0) {
           for (let i = 0; i < responseError.error.Errors.length; i++) {
-            this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Doğrulama hatası")
+            this.toastrService.error(responseError.error.Errors[i].ErrorMessage, "Doğrulama hatası")
           }
         }
       })
-    }else{
-      this.toastrService.warning("Formunuz eksik","Dikkat!")
+    } else {
+      this.toastrService.warning("Formunuz eksik", "Dikkat!")
     }
   }
 }

@@ -1,5 +1,6 @@
 <div class="container-fluid" routerLink="/payment">
     <div class="row justify-content-center">
+        <app-card-saved (selectedCard)="setSelectedCard($event)"></app-card-saved><br>
         <div class="col-12 col-lg-11">
             <div class="card card0 rounded-0">
                 <div class="row">
@@ -87,13 +88,24 @@
                                     <div class="col-md-1"> <label class="pay">&nbsp;Güvenlik Kodu</label>
                                         <div> 
                                         <input id="cvv"  [(ngModel)]="cardCvv" type="password" name="cvcpwd" placeholder="&#9679;&#9679;&#9679;" class="placeicon" minlength="3" maxlength="3"> </div></div>
-                                </div><br>
+                                        
+                                    </div><br>
+
+                                    
+                                      
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="save" [(ngModel)]="save">
+                                        <label class="form-check-label" for="save">
+                                           Kart bilgilerimin kayıt edilmesini istiyorum.
+                                        </label>
+                                     </div>
+                                      <br>
+                                
                                 <div class="row">
                                         <button (click)="rentACar()" class="btn btn-success" style="background-color: crimson;height:40px;"><b>ÖDEMEYİ TAMAMLA</b></button>  
-                                        <!-- <input type="submit" value="MAKE A PAYMENT &nbsp; " class="btn btn-info placeicon"> -->
-                                    <!-- <button type="button" class="btn btn-primary" routerLink="/cars/cardetail/{{carId}}" style="background: darkblue;">Back</button> -->
-                                </div>
-                            </div>
+                                       
+                                </div>                                
+                            </div>                            
                         </div>
                     </div>
                 </div>

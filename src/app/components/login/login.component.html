@@ -1,0 +1,43 @@
+<body class="text-center" style="margin-left: 35%;height: 470px;width: 400px;background-repeat: no-repeat;background-size: 400px 470px;
+background-image: url(https://images.unsplash.com/photo-1485758152456-1e91810337e0?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTg0fHxibGFjayUyMGJhY2tncm91bmQlMjBjYXJ8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60);">
+    <main class="form-signin">
+      <form [formGroup]="loginForm">
+        <h1 class="h3 mb-3 fw-normal" style="color: honeydew;">sign in</h1>
+        <div class="form-floating">
+          <input
+          formControlName="email"
+            type="email"
+            class="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+          />
+          <label for="floatingInput">Email</label>
+        </div>
+        <div class="form-floating">
+          <input
+          formControlName="password"
+            type="password"
+            class="form-control"
+            id="floatingPassword"
+            placeholder="Password"
+          />
+          <label for="floatingPassword\">Password</label><span toggle="#floatingPassword" class="bi bi-fw bi-eye field-icon toggle-password"></span>
+        </div>
+  
+        <div class="checkbox mb-3">
+          <label style="color: rgb(167, 226, 250);">
+            <input type="checkbox" value="remember-me" /> Remember me
+          </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" (click)="login()">
+          Sign in
+        </button><br><br>
+        <div class="col-md-12">
+            <p class="font-small white-text d-flex justify-content-center" style="color: white;">Don't have your account?&nbsp;<a routerLink="/register"  class="green-text ml-1 font-weight-bold" style="color: turquoise;">
+                Sign up</a></p>
+          </div>
+        <p class="mt-5 mb-3 text-muted" style="color: white;">&copy; 2017–2021</p>
+      </form>
+    </main>
+  </body>
+  

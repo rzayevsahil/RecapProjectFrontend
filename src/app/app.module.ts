@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import {FormsModule,ReactiveFormsModule} from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SwiperModule } from 'swiper/angular';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,6 +31,14 @@ import { BrandUpdateComponent } from './components/brand/brand-update/brand-upda
 import { BrandListComponent } from './components/brand/brand-list/brand-list.component';
 import { ColorListComponent } from './components/color/color-list/color-list.component';
 import { CarListComponent } from './components/car/car-list/car-list.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { ProfileComponent } from './components/profile/profile.component';
+import { UserMenuComponent } from './components/navi/user-menu/user-menu.component';
+import { HomeComponent } from './components/home/home.component';
+import { CardSavedComponent } from './components/payment/card-saved/card-saved.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -55,7 +64,14 @@ import { CarListComponent } from './components/car/car-list/car-list.component';
     BrandUpdateComponent,
     BrandListComponent,
     ColorListComponent,
-    CarListComponent
+    CarListComponent,
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent,
+    UserMenuComponent,
+    HomeComponent,
+    CardSavedComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -64,11 +80,14 @@ import { CarListComponent } from './components/car/car-list/car-list.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    SwiperModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     })
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,24 +1,20 @@
 <!-- <div class="container"> -->
-  <div class="row">
-    <div class="col-md-3">
-      <app-brand></app-brand>
-      <app-color></app-color>
+<div class="row">
+  <div class="col-md-3">
+    <app-brand></app-brand>
+    <app-color></app-color>
+  </div>
+  <div class="col-md-9">
+    <div *ngIf="dataLoaded == false" class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
     </div>
-    <div class="col-md-9">
-      <div
-  *ngIf="dataLoaded == false"
-  class="spinner-border text-primary"
-  role="status"
->
-  <span class="visually-hidden">Loading...</span>
-</div>
-<!-- <div class="col-md-12">
+    <!-- <div class="col-md-12">
   <div *ngIf="filterCar.length>1" class="alert alert-success">
     A simple primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
     {{filterCar}} aradınız
   </div>
 </div> -->
-<!-- <li
+    <!-- <li
     (click)="setCurrentAllCar()"
     [class]="getCurrentAllCarClass()"
     routerLink="/cars"
@@ -32,83 +28,98 @@
   <label for="filterCar" class="form-label">Add car name</label>
   <input type="text"  [(ngModel)]="filterCar" class="form-control" id="filterCar" placeholder="Search cars">
 </div> -->
-<li
-    (click)="setCurrentAllCar()"
-    [class]="getCurrentAllCarClass()"
-    routerLink="/cars"
-    class="p-3 mb-2 bg-dark bg-gradient text-white"
-    aria-current="true"
-  >
-    Araba Listesi
-  </li>
-<div class="row">
+    <li (click)="setCurrentAllCar()" [class]="getCurrentAllCarClass()" routerLink="/cars"
+      class="p-3 mb-2 bg-dark bg-gradient text-white" aria-current="true">
+      Araba Listesi
+    </li>
+    <div class="row">
 
-  <div class="col-md-3" >
-    <label for="cars"><strong>Markalar :</strong></label>
-    <select  class="form-select"  [(ngModel)]="brandId" aria-label="Default select example">
-      <option value=0>Tüm Markalar</option>
-      <option *ngFor="let brand of brands" [value]="brand.brandId" 
-      [selected]="setSelectedBrandId(brand.brandId)">{{brand.brandName}}</option>
-    </select>
-  </div>&nbsp;
- 
+      <div class="col-md-3">
+        <label for="cars"><strong>Markalar :</strong></label>
+        <select class="form-select" [(ngModel)]="brandId" aria-label="Default select example">
+          <option value=0>Tüm Markalar</option>
+          <option *ngFor="let brand of brands" [value]="brand.brandId" [selected]="setSelectedBrandId(brand.brandId)">
+            {{brand.brandName}}</option>
+        </select>
+      </div>&nbsp;
 
-  <div class="col-md-3">
-    <label for="cars"><strong>Renkler :</strong></label>
-    <select class="form-select" [(ngModel)]="colorId"> 
-      <option value=0>Tüm Renkler</option>
-      <option *ngFor="let color of colors" [value]="color.colorId"
-      [selected]="setSelectedColorId(color.colorId)">{{color.colorName}}</option>
-    </select>
-  </div>
-  <div class="col-md-4 btn-goback"><br>   
-    <button class="btn btn-xs btn-success" (click)="filterClick()"   type="button"
-    style="background: rgb(3, 168, 39);" class="btn btn-xs btn-success"><b>Filtrele&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-funnel" viewBox="0 0 18 18">
-      <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2h-11z"/>
-    </svg></b></button>&nbsp;
 
-      <button routerLink="/cars" type="button" style="background: rgb(255, 0, 0);" 
-      class="btn btn-xs btn-success"><b>Temizle&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-brush" viewBox="0 0 18 19">
-        <path d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.067 6.067 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.118 8.118 0 0 1-3.078.132 3.659 3.659 0 0 1-.562-.135 1.382 1.382 0 0 1-.466-.247.714.714 0 0 1-.204-.288.622.622 0 0 1 .004-.443c.095-.245.316-.38.461-.452.394-.197.625-.453.867-.826.095-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.201-.925 1.746-.896.126.007.243.025.348.048.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.176-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04zM4.705 11.912a1.23 1.23 0 0 0-.419-.1c-.246-.013-.573.05-.879.479-.197.275-.355.532-.5.777l-.105.177c-.106.181-.213.362-.32.528a3.39 3.39 0 0 1-.76.861c.69.112 1.736.111 2.657-.12.559-.139.843-.569.993-1.06a3.122 3.122 0 0 0 .126-.75l-.793-.792zm1.44.026c.12-.04.277-.1.458-.183a5.068 5.068 0 0 0 1.535-1.1c1.9-1.996 4.412-5.57 6.052-8.631-2.59 1.927-5.566 4.66-7.302 6.792-.442.543-.795 1.243-1.042 1.826-.121.288-.214.54-.275.72v.001l.575.575zm-4.973 3.04.007-.005a.031.031 0 0 1-.007.004zm3.582-3.043.002.001h-.002z"/>
-      </svg></b></button>
-  </div>
-</div>
-
-<div class="row" *ngIf="cars.length == 0">
-  <div class="col-md-12">
-    <div class="alert alert-danger">
-      Araba bulunamadı&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 18 19">
-        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-        <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
-      </svg>
-    </div>
-  </div>
-</div>
-
-<div class="row" *ngIf="dataLoaded==true" >
-  <div class="col-md-4" *ngFor="let car of cars">
-    <div class="card" style="margin-top: 15px;">
-      <div>
-        <img  src="https://localhost:44358/{{ car.imagePath ? car.imagePath : '/images/null.jpg' }}" class="card-img-top" width="auto" height="150px">
-       </div>
-      <div class="card-body" style="background-color:rgb(255, 255, 255);">
-        <h5 class="card-title"><b> {{car.brandName}} - {{car.modelYear}} </b></h5>
+      <div class="col-md-3">
+        <label for="cars"><strong>Renkler :</strong></label>
+        <select class="form-select" [(ngModel)]="colorId">
+          <option value=0>Tüm Renkler</option>
+          <option *ngFor="let color of colors" [value]="color.colorId" [selected]="setSelectedColorId(color.colorId)">
+            {{color.colorName}}</option>
+        </select>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"> <b>Color:</b> {{car.colorName |uppercase}}</li>
-        <li class="list-group-item text-center" style="color:#f00000;"><b>{{car.dailyPrice | vatAdded:10 |currency:'₺'}} <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-cash" viewBox="0 0 22 20">
-          <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
-          <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z"/>
-        </svg></b></li>
-        <li class="list-group-item text-center"style="color:#808080;"><del><b> {{car.dailyPrice | currency:'₺'}}</b></del></li>
-        <li class="list-group-item text-center"> <button routerLink="/cars/cardetail/{{car.id}}" type="button" class="btn btn-info w-100"><strong>Details <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list-nested" viewBox="0 0 18 19">
-          <path fill-rule="evenodd" d="M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5z"/>
-        </svg></strong></button> </li>
-        <!-- <li class="list-group-item text-center" style="color:#d9ff00;"> <button (click)="addToCart" type="button" class="btn btn-warning w-100"><strong>Sepete ekle</strong></button> </li> -->
-      </ul>
+      <div class="col-md-4 btn-goback"><br>
+        <button class="btn btn-xs btn-success" (click)="filterClick()" type="button"
+          style="background: rgb(3, 168, 39);" class="btn btn-xs btn-success"><b>Filtrele&nbsp;<svg
+              xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-funnel"
+              viewBox="0 0 18 18">
+              <path
+                d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2h-11z" />
+            </svg></b></button>&nbsp;
+
+        <button routerLink="/cars" type="button" style="background: rgb(255, 0, 0);"
+          class="btn btn-xs btn-success"><b>Temizle&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+              fill="currentColor" class="bi bi-brush" viewBox="0 0 18 19">
+              <path
+                d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.067 6.067 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.118 8.118 0 0 1-3.078.132 3.659 3.659 0 0 1-.562-.135 1.382 1.382 0 0 1-.466-.247.714.714 0 0 1-.204-.288.622.622 0 0 1 .004-.443c.095-.245.316-.38.461-.452.394-.197.625-.453.867-.826.095-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.201-.925 1.746-.896.126.007.243.025.348.048.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.176-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04zM4.705 11.912a1.23 1.23 0 0 0-.419-.1c-.246-.013-.573.05-.879.479-.197.275-.355.532-.5.777l-.105.177c-.106.181-.213.362-.32.528a3.39 3.39 0 0 1-.76.861c.69.112 1.736.111 2.657-.12.559-.139.843-.569.993-1.06a3.122 3.122 0 0 0 .126-.75l-.793-.792zm1.44.026c.12-.04.277-.1.458-.183a5.068 5.068 0 0 0 1.535-1.1c1.9-1.996 4.412-5.57 6.052-8.631-2.59 1.927-5.566 4.66-7.302 6.792-.442.543-.795 1.243-1.042 1.826-.121.288-.214.54-.275.72v.001l.575.575zm-4.973 3.04.007-.005a.031.031 0 0 1-.007.004zm3.582-3.043.002.001h-.002z" />
+            </svg></b></button>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="cars.length == 0">
+      <div class="col-md-12">
+        <div class="alert alert-danger">
+          Araba bulunamadı&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+            class="bi bi-exclamation-triangle" viewBox="0 0 18 19">
+            <path
+              d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z" />
+            <path
+              d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="dataLoaded==true">
+      <div class="col-md-4" *ngFor="let car of cars">
+        <div class="card" style="margin-top: 15px;">
+          <img src="https://localhost:44358/{{ car.imagePath ? car.imagePath : '/images/null.jpg' }}"
+            class="card-img-top" width="auto" height="150px">
+          <div class="card-body" style="background-color:#fffefe">
+            <h5 class="card-title"><b> {{car.brandName}} - {{car.modelYear}}
+                <!-- <button class="card-notify-year" style="border-radius: 50%;background-color:rgb(252, 145, 145) ;">{{car.findexPoint}}</button>  -->
+              </b></h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li style="background-color:#ffffff" class="list-group-item"> <b>Findeks puanı:</b>&nbsp;<button disabled
+                style="border-radius: 50px;background-color: darkslategray;color: white;">{{car.findexPoint}}</button>
+            </li>
+            <li style="background-color:#ffffff" class="list-group-item"> <b>Renk:</b> {{car.colorName |uppercase}}</li>
+            <li class="list-group-item text-center" style="color:#f00000;;background-color:#ffffff"><b>{{car.dailyPrice
+                | vatAdded:10 |currency:'₺'}} <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+                  fill="currentColor" class="bi bi-cash" viewBox="0 0 22 20">
+                  <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+                  <path
+                    d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z" />
+                </svg></b></li>
+            <li style="background-color:#ffffff" class="list-group-item text-center"
+              style="color:#808080;background-color:#ffffff"><del><b> {{car.dailyPrice | currency:'₺'}}</b></del></li>
+            <li style="background-color:#fffafa" class="list-group-item text-center"> <button
+                routerLink="/cars/cardetail/{{car.id}}" type="button" class="btn btn-info w-100"><strong>Detaylar <svg
+                    xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="bi bi-list-nested" viewBox="0 0 18 19">
+                    <path fill-rule="evenodd"
+                      d="M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5z" />
+                  </svg></strong></button> </li>
+            <!-- <li class="list-group-item text-center" style="color:#d9ff00;"> <button (click)="addToCart" type="button" class="btn btn-warning w-100"><strong>Sepete ekle</strong></button> </li> -->
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-    </div>
-  </div>
 <!-- </div> -->

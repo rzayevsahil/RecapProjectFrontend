@@ -1,0 +1,18 @@
+.social {
+  margin-top: 15px;
+}
+
+.social > .social-item {
+  background-color: beige;
+  padding: 20px;
+  border-radius: 50%;
+  color: #555;
+  font-size: 18px;
+  transition: all 0.5s;
+}
+
+.social > .social-item:hover {
+  background-color: #ccc;
+  cursor: pointer;
+  border-radius: 0px;
+}

@@ -22,11 +22,11 @@
           <app-color-add></app-color-add>
       </div>
     </div> -->
-    <div *ngIf="color" class="content" style="width: 105%;">
+    <div *ngIf="color" class="content" style="width: 105%;" >
       <div class="col-md-3">
-        <div class="card">
+        <div class="card" style="background-image: url(https://images.unsplash.com/photo-1578364249730-0c4ee16426fa?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8YmxhY2slMjBiYWNrZ3JvdW5kJTIwY2FyfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60);">
           <div class="card-header">
-            <h5 class="title">Renk güncelle</h5>
+            <h5 class="title" style="text-align:left;color: white;">Renk güncelle</h5>
           </div>
           <div class="card-body">
             <form [formGroup]="colorUpdateForm">
@@ -43,8 +43,8 @@
             </form>
           </div>
           <div class="card-footer">
-            <button class="btn btn-primary" (click)="update()">Güncelle</button>
-            <button class="btn btn-secondary float-end" routerLink="/colorOperations">Geri</button>
+            <button class="btn btn-primary" (click)="update()" style="float: left;">Güncelle <i class="fas fa-pen"></i></button>
+            <button class="btn btn-secondary float-end" routerLink="/colorOperations">Geri <i class="fas fa-arrow-circle-left"></i></button>
           </div>
         </div>
       </div>

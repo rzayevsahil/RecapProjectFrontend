@@ -9,6 +9,7 @@
             <th style="padding-left: 20px;" scope="col">Model</th>
             <th scope="col">Günlük Fiyat</th>
             <th style="padding-right: 100px;" scope="col">Açıklama</th>
+            <th style="padding-right: 60px;" scope="col">Findeks</th>
             <th scope="col"></th>
             <button
               style="text-align: left;background-color: green;"
@@ -31,18 +32,19 @@
             <td style="padding-right: 15px;">{{ car.modelYear }}</td>
             <td style="padding-right: 50px;">{{ car.dailyPrice }}</td>
             <td style="padding-right: 80px;">{{ car.description }}</td>
+            <td style="padding-right: 80px;">{{ car.findexPoint }}</td>
             <td>
               <button
                 class="btn btn-success"
                 style="border-radius: 50px"
                 routerLink="/carOperations/update/{{car.id}}"
               >
-                Güncelle<i class="bi bi-pencil-square"></i></button>&nbsp;
+                Güncelle <i class="bi bi-pencil-square"></i></button>&nbsp;
               <button (click)="delete(car)"
                 class="btn btn-danger"
                 style="border-radius: 50px; width: 100px" 
               >
-                Sil<i class="bi-trash"></i>
+                Sil <i class="bi-trash"></i>
               </button>
             </td>
           </tr>
