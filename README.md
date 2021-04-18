@@ -6,9 +6,13 @@
 
 ![p3 ](https://user-images.githubusercontent.com/58303745/115150170-46d7ce80-a078-11eb-921a-b5d06884ba51.jpg)
 ---
+---
 ## Contact Me 📫
 - [![Gmail Badge](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)]() sahilrzayev200d@gmail.com
 - [![Linkedin Badge](https://img.shields.io/badge/sahilrzayev-follow%20on%20linkedin-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/sahilrzayev)
+---
+---
+---
 ---
 
 ## Ana sayfa - Register ve Login butonları eklendi:
