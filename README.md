@@ -1,8 +1,15 @@
 # CarRentalFrontend
+---
+- [![Gmail Badge](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)]() sahilrzayev200d@gmail.com
+- [![Linkedin Badge](https://img.shields.io/badge/sahilrzayev-follow%20on%20linkedin-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/sahilrzayev)
+---
 
 ## Ana sayfa - Register ve Login butonları eklendi:
 
 ![1(ana sayfa register ve login)](https://user-images.githubusercontent.com/58303745/114320726-6034c400-9b28-11eb-8a2d-fc5a5262ea39.jpg)
+
+---
+---
 
 ## Login ve Register:
 
@@ -10,14 +17,22 @@
 
 ![2(login)](https://user-images.githubusercontent.com/58303745/114320782-a9851380-9b28-11eb-8d12-26caacff4ea9.jpg)
 
+---
+---
 
 ## Kullanıcı kayıt olunca direk siteye giriyor ve default olarak sistem tarafından findeks puanı ekleniyor ve siteye giren kullanıcı mı yönetici mi onu da yazıyor
 
 ![4(kullanıcı kayıt olunca direk siteye giriyor ve default olarak sistem tarafından findeks puanı atıyor)](https://user-images.githubusercontent.com/58303745/114320815-d46f6780-9b28-11eb-8d24-4e094aaaa38f.jpg)
 
+---
+---
+
 ## Filter
 
 ![5(filtreleme)](https://user-images.githubusercontent.com/58303745/114320858-11d3f500-9b29-11eb-844b-e8839635cc69.jpg)
+
+---
+---
 
 ## Findeks 
 
@@ -25,24 +40,46 @@
 
 ![7(findeks yeterliyse kiralama butonu oluyor)](https://user-images.githubusercontent.com/58303745/114320890-34660e00-9b29-11eb-894d-f1579e63351a.jpg)
 
+---
+---
+
 ## Kiralama 
 
 ![image](https://user-images.githubusercontent.com/58303745/114320922-624b5280-9b29-11eb-9636-85d6a58b8975.png)
+
+---
+---
 
 ## Ödeme sayfası
 
 ![9](https://user-images.githubusercontent.com/58303745/114320938-7d1dc700-9b29-11eb-96d2-1346189f61bd.jpg)
 
+---
+---
 
-![11(kullanıcı güncelle)](https://user-images.githubusercontent.com/58303745/114320952-99b9ff00-9b29-11eb-95c4-67b0ca9cdf22.jpg)
+## Kullanıcı bilgilerini güncelleme
 
-![12(şifreler eşleşmiyor)](https://user-images.githubusercontent.com/58303745/114320954-9aeb2c00-9b29-11eb-8b90-d0494cb4d40c.jpg)
+![11(kullanıcı güncelle)](https://user-images.githubusercontent.com/58303745/115144828-d2913100-a05f-11eb-922d-45655a3cdac0.jpg)
 
-![14(çıkış yapıldı mesajı)](https://user-images.githubusercontent.com/58303745/114320957-9de61c80-9b29-11eb-864a-5d75555484d1.jpg)
+![12(şifreler eşleşmiyor)](https://user-images.githubusercontent.com/58303745/115144829-d329c780-a05f-11eb-921f-5f8e6ace422d.jpg)
 
-![15(giriş yaptığımızda parola yanlış olursa)](https://user-images.githubusercontent.com/58303745/114320959-9f174980-9b29-11eb-8570-8c1243cbe57c.jpg)
+![13(bilgiler güncellendi mesajı)](https://user-images.githubusercontent.com/58303745/115144830-d3c25e00-a05f-11eb-9f82-320bfa5c29ea.jpg)
 
-![16(başarıyla giriş yapıldı mesajı)](https://user-images.githubusercontent.com/58303745/114320963-a0e10d00-9b29-11eb-92fa-33232b6e8f75.jpg)
+![14(çıkış yapıldı mesajı)](https://user-images.githubusercontent.com/58303745/115144824-d0c76d80-a05f-11eb-9b17-3b90253a5c3a.jpg)
+
+---
+---
+
+## Siteye giriş yaptığımızda
+
+![15(giriş yaptığımızda parola yanlış olursa)](https://user-images.githubusercontent.com/58303745/115144921-3a477c00-a060-11eb-86a4-a6f990df4840.jpg)
+
+![16(başarıyla giriş yapıldı mesajı)](https://user-images.githubusercontent.com/58303745/115144924-3d426c80-a060-11eb-8dfc-4560ccc428b9.jpg)
+
+---
+---
+
+## Kişinin kullanıcı yoksa yönetici olduğunu sağ üstde belirtiyor ve eğer giriş yapan yöneticiyse(admin) *İşlemler* butonu üst kısımda gözüküyor ve burada yönetici araba,marka ve renk silme,güncelleme,ekleme işlemleri yapıyor
 
 ![17(Kişinin kullanıcı yoksa yönetici olduğunu sağ üstde belirtiyor ve admin diye işlmeler butonu da geliyor)](https://user-images.githubusercontent.com/58303745/114320967-a2123a00-9b29-11eb-8a6f-92074c9afc07.jpg)
 
@@ -61,6 +98,7 @@
 ![24 1](https://user-images.githubusercontent.com/58303745/114321021-d4bc3280-9b29-11eb-9a42-dbed72ae2d8b.jpg)
 
 ![24](https://user-images.githubusercontent.com/58303745/114321023-d5ed5f80-9b29-11eb-9020-fd03269a71e4.jpg)
+
 ![25](https://user-images.githubusercontent.com/58303745/114321024-d71e8c80-9b29-11eb-8865-6b2dfba67c37.jpg)
 
 ![26](https://user-images.githubusercontent.com/58303745/114321026-d84fb980-9b29-11eb-99c3-fb31ee434243.jpg)
